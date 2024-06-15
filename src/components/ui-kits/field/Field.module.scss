@@ -1,0 +1,12 @@
+@import '/src/assets/styles/_variables.scss';
+
+.input {
+	background-color: $dark-gray;
+	padding: 14px;
+
+	border-radius: 10px;
+
+	font-size: 20px;
+	width: 100%;
+	outline: none;
+}

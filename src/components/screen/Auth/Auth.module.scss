@@ -1,0 +1,28 @@
+@import '/src/assets/styles/_variables.scss';
+
+.wrapper {
+	background-color: #786c6c;
+	width: 103px;
+	height: 103px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 30px;
+	margin: 0 auto;
+
+	margin-bottom: 56px;
+}
+
+.form {
+	height: 355px;
+	background-color: #786c6c;
+	border-radius: 23px;
+
+	a {
+		color: #a89e9e;
+		font-size: 14px;
+	}
+}
+.value {
+	padding: 30px;
+}

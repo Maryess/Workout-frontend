@@ -1,0 +1,22 @@
+@import '/src/assets/styles/_variables.scss';
+
+.main {
+	border-radius: 10px;
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.2);
+	transition: background-color 0.4s ease;
+	border: none;
+	padding: 13px 48px;
+	outline: none;
+	&:hover {
+		background-color: $dark-gray;
+		opacity: 1;
+	}
+}
+.heading {
+	font-size: 24px;
+	color: #fff;
+}
+.wrapper {
+	text-align: center;
+}

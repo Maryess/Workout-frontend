@@ -1,0 +1,54 @@
+@import 'src/assets/styles/variables';
+@import 'src/assets/styles/animations';
+
+.hamburger {
+	position: relative;
+
+	> button {
+		font-size: 30px;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+
+		> svg > path {
+			fill: #fff;
+		}
+	}
+
+	.menu {
+		position: absolute;
+		top: calc(100% + 8px);
+		right: 0;
+		background-color: #fff;
+		padding: 10px 12px;
+		font-size: 14px;
+		border-radius: 10px 0 10px 10px;
+		min-width: 200px;
+
+		animation: opacity 0.4s;
+		box-shadow: 5px 0 16px 5px;
+		> ul {
+			list-style: none;
+
+			> li {
+				font-size: 20px;
+				cursor: pointer;
+				margin-bottom: 10px;
+				a {
+					text-decoration: none;
+					color: #000;
+					transition: color 0.2s ease;
+					&:hover {
+						color: $gray;
+					}
+				}
+				button {
+					font-size: 22px;
+					background: none;
+					border: none;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

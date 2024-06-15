@@ -1,0 +1,36 @@
+@import '/src/assets/styles/_variables.scss';
+
+.center {
+	text-align: center;
+	margin: 6px 0 18px;
+}
+
+.before_after {
+	display: flex;
+	text-align: center;
+	justify-content: space-betwenn;
+	@media (max-width: $mobile) {
+		width: 90%;
+		margin: 0 auto;
+	}
+	.heading {
+		margin-bottom: 0.5rem;
+	}
+
+	> div {
+		width: 50%;
+		@media (max-width: $mobile) {
+			width: 48%;
+		}
+	}
+
+	img {
+		border-radius: 10px;
+		@media (max-width: 480px) {
+			height: 75%;
+		}
+		@media (max-width: 441px) {
+			height: 70%;
+		}
+	}
+}

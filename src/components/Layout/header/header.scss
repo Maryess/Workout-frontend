@@ -1,0 +1,20 @@
+@import 'src/assets/styles/variables';
+
+.header {
+	display: $flex;
+	justify-content: space-between;
+	padding: 25px;
+	> button {
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+	}
+	.burger-menu {
+		display: flex;
+		flex-direction: column;
+		margin: 10px;
+		> img {
+			margin: 2px;
+		}
+	}
+}
