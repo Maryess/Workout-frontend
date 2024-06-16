@@ -1,12 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom'
-import './hamburger.scss'
+import './Hamburger.module.scss'
+import styles from './Hamburger.module.scss'
 import { menu } from './menu.data'
-
 const Menu = () => {
 	const navigate = useNavigate()
 
 	return (
-		<nav className='menu'>
+		<nav className={styles.menu}>
 			<ul>
 				{menu.map((item, index) => (
 					<li key={`_menu_${index}`}>

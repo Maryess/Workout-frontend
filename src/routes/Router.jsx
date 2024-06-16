@@ -1,22 +1,22 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Auth from '../components/screen/Auth/Auth'
-import Error from '../components/screen/Error/Error'
-import Home from '../components/screen/home/Home'
-import NewExercise from '../components/screen/new-exercise/newExercise'
-import Profile from '../components/screen/profile/Profile'
-import Workouts from '../components/screen/Workouts/Workouts'
+import Auth from '../components/screens/auth/Auth'
+import Home from '../components/screens/home/Home'
+import NewExercise from '../components/screens/new-exercise/newExercise'
+import NotFound from '../components/screens/not-found/Not-found'
+import Profile from '../components/screens/profile/Profile'
+import Workouts from '../components/screens/workouts/Workouts'
 
 const Router = () => {
 	const router = createBrowserRouter([
 		{
 			path: '/',
 			element: <Home />,
-			errorElement: <Error />
+			errorElement: <NotFound />
 		},
 		{
 			path: '/profile',
 			element: <Profile />,
-			errorElement: <Error />
+			errorElement: <NotFound />
 		},
 		{
 			path: '/workouts',

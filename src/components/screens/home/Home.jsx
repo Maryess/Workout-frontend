@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import Layout from '../../Layout/Layout'
-import Button from '../../ui-kits/button/Button'
+import Layout from '../../layout/Layout'
+import Button from '../../ui/button/Button'
 import Statistics from '../profile/statistics/Statistics'
 import styles from './Home.module.scss'
 const Home = () => {

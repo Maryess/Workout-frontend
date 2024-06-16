@@ -1,28 +1,37 @@
 @import '/src/assets/styles/_variables.scss';
 
 .wrapper {
-	background-color: #786c6c;
+	background-color: #dec6c6;
 	width: 103px;
 	height: 103px;
+	border-radius: 30px;
+	margin: 0 auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 30px;
-	margin: 0 auto;
-
-	margin-bottom: 56px;
+	margin-bottom: 10rem;
 }
 
 .form {
-	height: 355px;
-	background-color: #786c6c;
-	border-radius: 23px;
-
+	text-align: center;
+	padding: 34px;
 	a {
-		color: #a89e9e;
-		font-size: 14px;
+		color: #fff;
+		font-size: 16px;
 	}
 }
 .value {
-	padding: 30px;
+	background-color: #dec6c6;
+	border-radius: 23px;
+}
+
+.wrapperButtons {
+	> button {
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-size: 13px;
+	}
+	/* display: flex;
+	justify-content: space-between; */
 }

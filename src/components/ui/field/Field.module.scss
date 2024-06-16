@@ -3,10 +3,13 @@
 .input {
 	background-color: $dark-gray;
 	padding: 14px;
-
+	color: white;
 	border-radius: 10px;
-
 	font-size: 20px;
 	width: 100%;
 	outline: none;
+	border: none;
+	&::placeholder {
+		color: white;
+	}
 }

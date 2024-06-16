@@ -1,7 +1,7 @@
 import cn from 'clsx'
-import stylesLayout from '../../Layout/Layout.module.scss'
-import Header from '../../Layout/header/header'
-import Button from '../../ui-kits/button/Button'
+import stylesLayout from '../../layout/Layout.module.scss'
+
+// import Button from '../../ui/button/Button'
 import styles from './Workouts.module.scss'
 
 const Workouts = () => {
@@ -14,7 +14,6 @@ const Workouts = () => {
 					height: 356
 				}}
 			>
-				<Header />
 				<div>
 					<p className={styles.time}>29min.</p>
 					<h1 className={styles.heading}>EXERCISE FOR THE SHOULDERS</h1>
@@ -24,7 +23,7 @@ const Workouts = () => {
 				className='wrapper-upper-up'
 				style={{ paddingLeft: 0, paddingRight: 0 }}
 			>
-				<div className={styles.list}>
+				{/* <div className={styles.list}>
 					{exercises.map((exercise, index) => (
 						<div key={index}>
 							<Button className={styles.button} heading={exercise.name}>
@@ -32,7 +31,7 @@ const Workouts = () => {
 							</Button>
 						</div>
 					))}
-				</div>
+				</div> */}
 			</div>
 		</>
 	)

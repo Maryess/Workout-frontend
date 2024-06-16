@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { CgMenuRight } from 'react-icons/cg'
 import { IoClose } from 'react-icons/io5'
-import './hamburger.scss'
-import Menu from './menu'
+import styles from './Hamburger.module.scss'
+import Menu from './Menu'
 
 const Hamburger = () => {
 	const [isShow, setIsShow] = useState(false)
 
 	return (
-		<div className='hamburger'>
+		<div className={styles.hamburger}>
 			<button onClick={() => setIsShow(!isShow)}>
 				{isShow ? <IoClose /> : <CgMenuRight />}
 			</button>

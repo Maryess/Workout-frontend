@@ -1,16 +1,10 @@
 import styles from './Field.module.scss'
 
-const Field = ({ children, placeholder = '', type = '', icon, getValue }) => {
+const Field = ({ register, name, error, options, ...rest }) => {
 	return (
 		<div style={{ marginBottom: '1rem' }}>
-			<input
-				className={styles.input}
-				type={type}
-				placeholder={placeholder}
-				style={{ backgroundImage: `url(${icon})` }}
-				onChange={getValue}
-			/>
-			{children}
+			<input {...register(name, options)} {...rest} className={styles.input} />
+			{error && <div className={styles.error}>{error}</div>}
 		</div>
 	)
 }
