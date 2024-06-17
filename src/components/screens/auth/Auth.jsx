@@ -1,5 +1,7 @@
+import { useMutation } from '@tanstack/react-query'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import AuthService from '../../../services/auth.service'
 import Layout from '../../layout/Layout'
 import Button from '../../ui/button/Button'
 import Field from '../../ui/field/Field'
@@ -14,10 +16,21 @@ const Auth = () => {
 		mode: 'onChange'
 	})
 
-	const [type, setType] = useState('Sign in')
+	const [type, setType] = useState('auth')
+	const { mutate } = useMutation(
+		['auth'],
+		({ email, password }) => AuthService.login(email, password, type),
+		{
+			onSuccess: data => {
+				alert('success')
+				console.log(data)
+			}
+		}
+	)
+
 	console.log(type)
-	const onSubmit = data => {
-		console.log(data)
+	const onSubmit = async data => {
+		mutate(data)
 	}
 
 	return (
@@ -53,17 +66,17 @@ const Auth = () => {
 						>
 							<Button
 								click={() => {
-									setType('Sign in')
+									setType('auth')
 								}}
-								heading={type}
+								heading={'Sign in'}
 							/>
 
 							<button
 								onClick={() => {
-									setType('Sign out')
+									setType('register')
 								}}
 							>
-								Click to register
+								Sign out
 							</button>
 						</div>
 					</form>
