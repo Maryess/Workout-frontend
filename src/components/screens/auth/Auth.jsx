@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import AuthService from '../../../services/auth.service'
 import Layout from '../../layout/Layout'
 import Button from '../../ui/button/Button'
@@ -11,19 +12,23 @@ const Auth = () => {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors }
+		formState: { errors },
+		reset
 	} = useForm({
 		mode: 'onChange'
 	})
 
-	const [type, setType] = useState('auth')
+	const [type, setType] = useState('register')
+	const navigate = useNavigate()
 	const { mutate } = useMutation(
 		['auth'],
-		({ email, password }) => AuthService.login(email, password, type),
+		({ email, password }) => AuthService.main(email, password, type),
+
 		{
 			onSuccess: data => {
 				alert('success')
-				console.log(data)
+				navigate('/')
+				reset()
 			}
 		}
 	)
@@ -66,7 +71,7 @@ const Auth = () => {
 						>
 							<Button
 								click={() => {
-									setType('auth')
+									setType('login')
 								}}
 								heading={'Sign in'}
 							/>
