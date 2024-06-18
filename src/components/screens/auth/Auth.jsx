@@ -1,21 +1,19 @@
 import { useMutation } from '@tanstack/react-query'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../hooks/useAuth'
 import AuthService from '../../../services/auth.service'
+import Loading from '../../ui/Loading'
 import Button from '../../ui/button/Button'
 import Field from '../../ui/field/Field'
 import styles from './Auth.module.scss'
-const Auth = () => {
-	const { isAuth } = useAuth()
-	const navigate = useNavigate()
-	useEffect(() => {
-		if (isAuth) {
-			navigate('/')
-		}
-	})
 
+const Auth = () => {
+	const { isAuth, setIsAuth } = useAuth()
+	const navigate = useNavigate()
+
+	console.log(isAuth)
 	const {
 		register,
 		handleSubmit,
@@ -26,13 +24,13 @@ const Auth = () => {
 	})
 
 	const [type, setType] = useState('register')
-	const { mutate } = useMutation(
+	const { mutate, isLoading } = useMutation(
 		['auth'],
 		({ email, password }) => AuthService.main(email, password, type),
 
 		{
-			onSuccess: data => {
-				alert('success')
+			onSuccess: () => {
+				setIsAuth(!isAuth)
 				navigate('/')
 				reset()
 			}
@@ -48,6 +46,7 @@ const Auth = () => {
 			<div className={styles.wrapper}>
 				<img src='/src/assets/icons/main.svg' style={{ height: 56 }} alt='' />
 			</div>
+			{isLoading ? <Loading /> : ''}
 			<div className={styles.value}>
 				<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
 					<Field

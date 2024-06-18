@@ -9,9 +9,8 @@ const Home = () => {
 	return (
 		<Layout bgImage={'/images/home-bg.jpg'}>
 			<Button
-				className={styles.button}
 				click={() => {
-					navigate('/exercise')
+					navigate('/workouts')
 				}}
 				heading='New'
 				width={146}

@@ -3,8 +3,9 @@ import { useCheckToken } from '../../hooks/useCheckToken'
 import styles from './Layout.module.scss'
 import Header from './header/Header'
 
-const Layout = ({ children, bgImage, heading = '', backLink = '/' }) => {
+const Layout = ({ children, bgImage, heading = '' }) => {
 	useCheckToken()
+
 	return (
 		<section
 			className={cn(styles.wrapper, {

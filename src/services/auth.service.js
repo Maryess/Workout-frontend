@@ -9,7 +9,6 @@ class AuthService {
 			})
 
 			if (data.token) Cookies.set('work', data.token)
-
 			return data
 		} catch (error) {
 			throw new Error(error)

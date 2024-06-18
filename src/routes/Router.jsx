@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Auth from '../components/screens/auth/Auth'
 import Home from '../components/screens/home/Home'
-import NewExercise from '../components/screens/new-exercise/newExercise'
+import Exercise from '../components/screens/new-exercise/NewExercise'
 import NotFound from '../components/screens/not-found/Not-found'
 import Profile from '../components/screens/profile/Profile'
 import Workouts from '../components/screens/workouts/Workouts'
@@ -23,11 +23,11 @@ const Router = () => {
 			element: <Workouts />
 		},
 		{
-			path: '/exercise',
-			element: <NewExercise />
+			path: '/new-exercise',
+			element: <Exercise />
 		},
 		{
-			path: 'logout',
+			path: 'auth',
 			element: <Auth />
 		}
 	])

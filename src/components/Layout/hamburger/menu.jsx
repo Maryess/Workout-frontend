@@ -1,9 +1,18 @@
+import Cookies from 'js-cookie'
 import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../../hooks/useAuth'
 import './Hamburger.module.scss'
 import styles from './Hamburger.module.scss'
 import { menu } from './menu.data'
+
 const Menu = () => {
+	const { setIsAuth } = useAuth()
 	const navigate = useNavigate()
+	const logout = () => {
+		Cookies.remove('work')
+		setIsAuth(false)
+		navigate('/auth')
+	}
 
 	return (
 		<nav className={styles.menu}>
@@ -14,13 +23,7 @@ const Menu = () => {
 					</li>
 				))}
 				<li>
-					<button
-						onClick={() => {
-							navigate('/logout')
-						}}
-					>
-						Logout
-					</button>
+					<button onClick={logout}>Logout</button>
 				</li>
 			</ul>
 		</nav>

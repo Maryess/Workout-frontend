@@ -1,11 +1,14 @@
 import cn from 'clsx'
 import { FaRegUser } from 'react-icons/fa'
+import { useProfile } from '../../../hooks/useProfile'
 import stylesLayout from '../../layout/Layout.module.scss'
 import Header from '../../layout/header/Header'
 import styles from './Profile.module.scss'
 import { images } from './data.image'
 import Statistics from './statistics/Statistics'
 const Profile = () => {
+	const { data } = useProfile()
+
 	return (
 		<>
 			<div
@@ -18,7 +21,7 @@ const Profile = () => {
 				<Header />
 				<div className={styles.center}>
 					<FaRegUser color='#fff' fontSize={79} />
-					<h1 className={stylesLayout.heading}>Maryess</h1>
+					<h1 className={stylesLayout.heading}>{data?.data.name}</h1>
 					<Statistics />
 				</div>
 			</div>

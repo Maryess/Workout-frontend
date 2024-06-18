@@ -4,8 +4,8 @@ export const menu = [
 		link: '/workouts'
 	},
 	{
-		title: 'Create new',
-		link: '/create'
+		title: 'Create exercise',
+		link: '/new-exercise'
 	},
 	{
 		title: 'Profile',
