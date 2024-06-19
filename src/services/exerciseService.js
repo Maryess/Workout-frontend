@@ -1,11 +1,12 @@
 import { $axios } from '../api'
 
 class ExerciseService {
-	async create(name, times) {
-		return await $axios.post(`/exercises`, {
-			name,
-			times
-		})
+	async create(body) {
+		return await $axios.post(`/exercises`, body)
+	}
+
+	async getAll() {
+		return await $axios.get(`/exercises`)
 	}
 }
 

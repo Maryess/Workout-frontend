@@ -10,7 +10,7 @@ const Home = () => {
 		<Layout bgImage={'/images/home-bg.jpg'}>
 			<Button
 				click={() => {
-					navigate('/workouts')
+					navigate('/new-workout')
 				}}
 				heading='New'
 				width={146}

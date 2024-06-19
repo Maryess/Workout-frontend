@@ -5,18 +5,34 @@ import Button from '../../ui/button/Button'
 
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
-import ExerciseService from '../../../services/exerciseService'
+import workoutService from '../../../services/workoutService'
 import Header from '../../layout/header/Header'
 import Field from '../../ui/field/Field'
-import styles from './Workouts.module.scss'
+import ExerciseList from './ExerciseList'
+import styles from './NewWorkouts.module.scss'
 // const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
 
-const Workouts = () => {
-	const { register, handleSubmit } = useForm({
+const NewWorkout = () => {
+	const { register, handleSubmit, reset } = useForm({
 		mode: 'onChange'
 	})
-	const { mutate } = useMutation(['create exercise'], body =>
-		ExerciseService.create(body)
+	// const {} = useFieldArray(
+	// 	{
+	// 		control, // control props comes from useForm (optional: if you are using FormContext)
+	// 		name: 'test' // unique name for your Field Array
+	// 		// keyName: "id", default to "id", you can change the key name
+	// 	}
+	// )
+
+	const { mutate } = useMutation(
+		['create exercise'],
+		body => workoutService.create(body),
+		{
+			onSuccess: () => {
+				alert('success')
+				reset()
+			}
+		}
 	)
 
 	const onSubmit = async data => {
@@ -49,13 +65,7 @@ const Workouts = () => {
 					options={{ required: 'Exercise is required' }}
 				/>
 
-				<Field
-					placeholder='Enter times'
-					type='text'
-					register={register}
-					name={'times'}
-					options={{ required: 'Times is required' }}
-				/>
+				<ExerciseList />
 
 				<Button heading='Create' />
 			</form>
@@ -63,4 +73,4 @@ const Workouts = () => {
 	)
 }
 
-export default Workouts
+export default NewWorkout

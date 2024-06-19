@@ -11,18 +11,24 @@ import Field from '../../ui/field/Field'
 import styles from './NewExercise.module.scss'
 // const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
 
-const Exercise = () => {
-	const { register, handleSubmit } = useForm({
+const NewExercise = () => {
+	const { register, handleSubmit, reset } = useForm({
 		mode: 'onChange'
 	})
-	const { mutate } = useMutation(['create exercise'], body =>
-		ExerciseService.create(body)
+	const { mutate } = useMutation(
+		['create exercise'],
+		body => ExerciseService.create(body),
+		{
+			onSuccess: () => {
+				alert('success')
+				reset()
+			}
+		}
 	)
 
 	const onSubmit = async data => {
 		mutate(data)
 		console.log(data)
-		alert(data)
 	}
 
 	return (
@@ -51,10 +57,20 @@ const Exercise = () => {
 
 				<Field
 					placeholder='Enter times'
-					type='text'
 					register={register}
 					name={'times'}
-					options={{ required: 'Times is required' }}
+					options={{
+						required: 'Times is required',
+						valueAsNumber: true,
+						validate: value => value > 0
+					}}
+				/>
+				<Field
+					placeholder='Enter icons'
+					type='text'
+					register={register}
+					name={'iconPath'}
+					options={{ required: 'Icons is required' }}
 				/>
 
 				<Button heading='Create' />
@@ -63,4 +79,4 @@ const Exercise = () => {
 	)
 }
 
-export default Exercise
+export default NewExercise
