@@ -1,13 +1,19 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Auth from '../components/screens/auth/Auth'
+import Exercises from '../components/screens/exercises/Exercises'
 import Home from '../components/screens/home/Home'
-import Exercise from '../components/screens/new-exercise/NewExercise'
+import NewExercise from '../components/screens/new-exercise/NewExercise'
+import NewWorkout from '../components/screens/new-workouts/NewWorkouts'
 import NotFound from '../components/screens/not-found/Not-found'
 import Profile from '../components/screens/profile/Profile'
-import Workouts from '../components/screens/workouts/Workouts'
+import Workout from '../components/screens/workout/Workout'
 
 const Router = () => {
 	const router = createBrowserRouter([
+		{
+			path: 'auth',
+			element: <Auth />
+		},
 		{
 			path: '/',
 			element: <Home />,
@@ -19,16 +25,20 @@ const Router = () => {
 			errorElement: <NotFound />
 		},
 		{
-			path: '/workouts',
-			element: <Workouts />
+			path: '/new-workout',
+			element: <NewWorkout />
 		},
 		{
 			path: '/new-exercise',
-			element: <Exercise />
+			element: <NewExercise />
 		},
 		{
-			path: 'auth',
-			element: <Auth />
+			path: 'exercises',
+			element: <Exercises />
+		},
+		{
+			path: 'workouts',
+			element: <Workout />
 		}
 	])
 

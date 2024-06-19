@@ -5,24 +5,45 @@ import Button from '../../ui/button/Button'
 
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
-import ExerciseService from '../../../services/exerciseService'
+import WorkoutService from '../../../services/workoutService'
 import Header from '../../layout/header/Header'
+import Loading from '../../ui/Loading'
 import Field from '../../ui/field/Field'
-import styles from './Workouts.module.scss'
+import ExerciseList from './ExerciseList'
+import styles from './NewWorkouts.module.scss'
 // const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
 
-const Workouts = () => {
-	const { register, handleSubmit } = useForm({
+const NewWorkout = () => {
+	const { control, register, handleSubmit, reset } = useForm({
 		mode: 'onChange'
 	})
-	const { mutate } = useMutation(['create exercise'], body =>
-		ExerciseService.create(body)
+	// const {} = useFieldArray(
+	// 	{
+	// 		control, // control props comes from useForm (optional: if you are using FormContext)
+	// 		name: 'test' // unique name for your Field Array
+	// 		// keyName: "id", default to "id", you can change the key name
+	// 	}
+	// )
+
+	const { mutate, isLoading } = useMutation(
+		['create workout'],
+		body => WorkoutService.create(body),
+		{
+			onSuccess: () => {
+				alert('Workouts created')
+				reset({
+					name: '',
+					exerciseIds: []
+				})
+			}
+		}
 	)
 
-	const onSubmit = async data => {
-		mutate(data)
-		console.log(data)
-		alert(data)
+	const onSubmit = data => {
+		mutate({
+			name: data.name,
+			exerciseIds: data.exerciseIds.map(ex => ex.value)
+		})
 	}
 
 	return (
@@ -40,6 +61,7 @@ const Workouts = () => {
 					<h1 className={stylesLayout.heading}>Create new workout</h1>
 				</div>
 			</div>
+			{isLoading ? <Loading /> : null}
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
 				<Field
 					name={'name'}
@@ -49,13 +71,7 @@ const Workouts = () => {
 					options={{ required: 'Exercise is required' }}
 				/>
 
-				<Field
-					placeholder='Enter times'
-					type='text'
-					register={register}
-					name={'times'}
-					options={{ required: 'Times is required' }}
-				/>
+				<ExerciseList control={control} />
 
 				<Button heading='Create' />
 			</form>
@@ -63,4 +79,4 @@ const Workouts = () => {
 	)
 }
 
-export default Workouts
+export default NewWorkout
