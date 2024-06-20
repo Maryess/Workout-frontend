@@ -3,10 +3,11 @@ import Auth from '../components/screens/auth/Auth'
 import Exercises from '../components/screens/exercises/Exercises'
 import Home from '../components/screens/home/Home'
 import NewExercise from '../components/screens/new-exercise/NewExercise'
-import NewWorkout from '../components/screens/new-workouts/NewWorkouts'
+import NewWorkout from '../components/screens/new-workout/NewWorkout'
 import NotFound from '../components/screens/not-found/Not-found'
 import Profile from '../components/screens/profile/Profile'
-import Workout from '../components/screens/workout/Workout'
+import Workout from '../components/screens/single-workout/Workout'
+import WorkoutsList from '../components/screens/workout/WorkoutsList'
 
 const Router = () => {
 	const router = createBrowserRouter([
@@ -26,19 +27,28 @@ const Router = () => {
 		},
 		{
 			path: '/new-workout',
-			element: <NewWorkout />
+			element: <NewWorkout />,
+			errorElement: <NotFound />
 		},
 		{
 			path: '/new-exercise',
-			element: <NewExercise />
+			element: <NewExercise />,
+			errorElement: <NotFound />
 		},
 		{
-			path: 'exercises',
-			element: <Exercises />
+			path: '/exercises',
+			element: <Exercises />,
+			errorElement: <NotFound />
 		},
 		{
-			path: 'workouts',
-			element: <Workout />
+			path: '/workouts',
+			element: <WorkoutsList />,
+			errorElement: <NotFound />
+		},
+		{
+			path: '/workout/:id',
+			element: <Workout />,
+			errorElement: <NotFound />
 		}
 	])
 

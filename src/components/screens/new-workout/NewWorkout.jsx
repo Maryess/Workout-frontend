@@ -9,8 +9,8 @@ import WorkoutService from '../../../services/workoutService'
 import Header from '../../layout/header/Header'
 import Loading from '../../ui/Loading'
 import Field from '../../ui/field/Field'
-import ExerciseList from './ExerciseList'
-import styles from './NewWorkouts.module.scss'
+import ExercisesList from './ExercisesList'
+import styles from './NewWorkout.module.scss'
 // const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
 
 const NewWorkout = () => {
@@ -48,15 +48,15 @@ const NewWorkout = () => {
 
 	return (
 		<>
-			<Header />
 			<div
-				className={cn(stylesLayout.wrapper)}
+				className={cn(stylesLayout.wrapper, stylesLayout.otherPage)}
 				style={{
 					backgroundImage: `url('/images/workouts-bg.jpg')`,
 					height: 280,
 					borderRadius: '0 0 23px 23px'
 				}}
 			>
+				<Header />
 				<div className={styles.center}>
 					<h1 className={stylesLayout.heading}>Create new workout</h1>
 				</div>
@@ -71,7 +71,7 @@ const NewWorkout = () => {
 					options={{ required: 'Exercise is required' }}
 				/>
 
-				<ExerciseList control={control} />
+				<ExercisesList control={control} />
 
 				<Button heading='Create' />
 			</form>

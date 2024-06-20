@@ -8,6 +8,10 @@ class WorkoutService {
 	async getAll() {
 		return await $axios.get(`/workouts`)
 	}
+
+	async getById(id) {
+		return await $axios.get(`/workouts/${id}`)
+	}
 }
 
 export default new WorkoutService()
