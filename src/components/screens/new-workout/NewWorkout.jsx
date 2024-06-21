@@ -5,7 +5,7 @@ import Button from '../../ui/button/Button'
 
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
-import WorkoutService from '../../../services/workoutService'
+import WorkoutService from '../../../services/workout.service'
 import Header from '../../layout/header/Header'
 import Loading from '../../ui/Loading'
 import Field from '../../ui/field/Field'
@@ -17,13 +17,6 @@ const NewWorkout = () => {
 	const { control, register, handleSubmit, reset } = useForm({
 		mode: 'onChange'
 	})
-	// const {} = useFieldArray(
-	// 	{
-	// 		control, // control props comes from useForm (optional: if you are using FormContext)
-	// 		name: 'test' // unique name for your Field Array
-	// 		// keyName: "id", default to "id", you can change the key name
-	// 	}
-	// )
 
 	const { mutate, isLoading } = useMutation(
 		['create workout'],

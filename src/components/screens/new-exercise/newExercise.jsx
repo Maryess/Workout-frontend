@@ -5,7 +5,7 @@ import Button from '../../ui/button/Button'
 
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
-import ExerciseService from '../../../services/exerciseService'
+import ExerciseService from '../../../services/exercise.service'
 import Header from '../../layout/header/Header'
 import Field from '../../ui/field/Field'
 import styles from './NewExercise.module.scss'

@@ -1,15 +1,17 @@
 import { useQuery } from '@tanstack/react-query'
 import cn from 'clsx'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import stylesLayout from '../../layout/Layout.module.scss'
 import Header from '../../layout/header/Header'
 import Button from '../../ui/button/Button'
-import WorkoutService from '/src/services/workoutService'
+import WorkoutService from '/src/services/workout.service'
 
 const Workout = () => {
 	const { id } = useParams()
 
-	const { data } = useQuery(['get exercise', id], () =>
+	const navigate = useNavigate()
+
+	const { data } = useQuery(['get workout', id], () =>
 		WorkoutService.getById(id)
 	)
 	console.log(data?.data)
@@ -28,7 +30,13 @@ const Workout = () => {
 			</div>
 			<div>
 				{data?.data.exercises.map(exercise => (
-					<Button key={exercise.id} heading={exercise.name} />
+					<Button
+						click={() => {
+							navigate(`/exercises/${exercise.id}`)
+						}}
+						key={exercise.id}
+						heading={exercise.name}
+					/>
 				))}
 			</div>
 		</>

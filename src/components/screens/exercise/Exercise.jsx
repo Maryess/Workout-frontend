@@ -1,29 +1,101 @@
 import cn from 'clsx'
-import { useWorkout } from '../../../hooks/useWorkout'
+import { useParams } from 'react-router-dom'
 import stylesLayout from '../../layout/Layout.module.scss'
 import Header from '../../layout/header/Header'
+import styles from './Exercises.module.scss'
+import { useExerciseLog } from './exercise-log/hooks/useExerciseLog'
 
-const Exercises = () => {
-	const { data } = useWorkout()
+const Exercise = () => {
+	const { id } = useParams()
+
+	const { data, changeTimesValue, getTime, getTimeValue, updateTimeValue } =
+		useExerciseLog()
 
 	return (
 		<>
-			<Header />
 			<div
-				className={cn(stylesLayout.wrapper)}
+				className={cn(stylesLayout.wrapper, stylesLayout.otherPage)}
 				style={{
-					backgroundImage: `url('/images/workouts-bg.jpg')`,
+					backgroundImage: `url('/images/exercise-bg.svg')`,
 					height: 280,
 					borderRadius: '0 0 23px 23px'
 				}}
-			></div>
-			<div>
-				{data?.data.exercises.map(exercise => (
-					<button key={exercise.id}>{exercise.name}</button>
-				))}
+			>
+				<Header />
+				<h1>{data?.data.name}</h1>
 			</div>
+			<div className={styles.exercise_log}>
+				<div>
+					<div>Previous</div>
+				</div>
+				<div>
+					<div>Repeat & weight</div>
+				</div>
+				<div>
+					<div>Completed</div>
+				</div>
+			</div>
+
+			{data?.data.times.map(time => (
+				<div
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'space-between'
+					}}
+					key={time.id}
+				>
+					<div style={{ display: 'flex' }}>
+						<input
+							style={{ width: 20 }}
+							type='number'
+							defaultValue={time.prevWeight}
+						/>
+						<p>/kg</p>
+						<input
+							style={{ width: 20 }}
+							type='number'
+							defaultValue={time.repeat}
+						/>
+					</div>
+					<div style={{ display: 'flex' }}>
+						<input
+							value={getTimeValue(time.id, 'weight')}
+							onChange={e => {
+								changeTimesValue(time.id, 'weight', +e.target.value)
+							}}
+							disabled={time.isCompleted}
+							style={{ width: 20 }}
+							type='tel'
+						/>
+						<p>/kg</p>
+						<input
+							value={getTimeValue(time.id, 'repeat')}
+							onChange={e => {
+								changeTimesValue(time.id, 'repeat', e.target.value)
+							}}
+							style={{ width: 20 }}
+							type='number'
+						/>
+					</div>
+					<div key={`Completed ${time.id}/${time.isCompleted}`}>
+						<img
+							src={
+								getTimeValue(time.id, 'isCompleted')
+									? '/src/assets/icons/complete.svg'
+									: '/src/assets/icons/completed.svg'
+							}
+							alt=''
+							style={{ width: 20 }}
+							onClick={() =>
+								updateTimeValue(time.id, !getTimeValue(time.id, 'isCompleted'))
+							}
+						/>
+					</div>
+				</div>
+			))}
 		</>
 	)
 }
 
-export default Exercises
+export default Exercise

@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import cn from 'clsx'
 import { useNavigate } from 'react-router-dom'
-import WorkoutService from '../../../services/workoutService'
+import WorkoutService from '../../../services/workout.service'
 import stylesLayout from '../../layout/Layout.module.scss'
 import Header from '../../layout/header/Header'
 import styles from './Workout.module.scss'
