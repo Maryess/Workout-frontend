@@ -3,6 +3,7 @@ import Layout from '../../layout/Layout'
 import Button from '../../ui/button/Button'
 import Statistics from '../profile/statistics/Statistics'
 import styles from './Home.module.scss'
+
 const Home = () => {
 	const navigate = useNavigate()
 
@@ -16,7 +17,7 @@ const Home = () => {
 				width={146}
 				height={66}
 			/>
-			<h1 className={styles.heading}>EXERCISE FOR THE SHOULDERS</h1>
+			<h1 className={styles.heading}>workouts name</h1>
 			<Statistics />
 		</Layout>
 	)

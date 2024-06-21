@@ -13,7 +13,7 @@ const ExerciseList = ({ control }) => {
 					console.log(value)
 					return (
 						<Select
-							placeholder='Exercises'
+							placeholder='Exercises...'
 							options={data?.data.map(exercise => ({
 								value: exercise.id,
 								label: exercise.name
