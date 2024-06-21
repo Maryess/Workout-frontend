@@ -56,16 +56,18 @@ const NewWorkout = () => {
 			</div>
 			{isLoading ? <Loading /> : null}
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-				<Field
-					name={'name'}
-					placeholder='Enter name workout'
-					type='text'
-					register={register}
-					options={{ required: 'Exercise is required' }}
-				/>
-
-				<ExercisesList control={control} />
-
+				<div style={{ marginBottom: '2rem' }}>
+					<Field
+						name={'name'}
+						placeholder='Enter name'
+						type='text'
+						register={register}
+						options={{ required: 'Exercise is required' }}
+					/>
+				</div>
+				<div style={{ marginBottom: '3rem' }}>
+					<ExercisesList control={control} />
+				</div>
 				<Button heading='Create' />
 			</form>
 		</>

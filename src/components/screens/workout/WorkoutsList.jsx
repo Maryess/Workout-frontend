@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import WorkoutService from '../../../services/workout.service'
 import stylesLayout from '../../layout/Layout.module.scss'
 import Header from '../../layout/header/Header'
+import stylesField from '../../ui/field/Field.module.scss'
 import styles from './Workout.module.scss'
 
 const WorkoutsList = () => {
@@ -24,8 +25,9 @@ const WorkoutsList = () => {
 
 			<div className={styles.workouts}>
 				{data?.data.map((workout, item) => (
-					<div className={styles.workouts_list} key={item}>
+					<div className={styles.list_navigate} key={item}>
 						<button
+							className={stylesField.input}
 							onClick={() => {
 								navigate(`/workout/${workout.id}`)
 							}}

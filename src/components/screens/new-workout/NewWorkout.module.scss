@@ -1,5 +1,9 @@
 @import '/src/assets/styles/_variables.scss';
 
+.form {
+	padding: 44px;
+}
+
 .list {
 	display: flex;
 	flex-direction: column;

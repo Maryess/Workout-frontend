@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import cn from 'clsx'
 import { useNavigate, useParams } from 'react-router-dom'
-import stylesLayout from '../../layout/Layout.module.scss'
-import Header from '../../layout/header/Header'
-import Button from '../../ui/button/Button'
+import stylesLayout from '../../../layout/Layout.module.scss'
+import Header from '../../../layout/header/Header'
+import styles from '../Workout.module.scss'
 import WorkoutService from '/src/services/workout.service'
 
 const Workout = () => {
@@ -30,13 +30,16 @@ const Workout = () => {
 			</div>
 			<div>
 				{data?.data.exercises.map(exercise => (
-					<Button
-						click={() => {
-							navigate(`/exercises/${exercise.id}`)
-						}}
-						key={exercise.id}
-						heading={exercise.name}
-					/>
+					<div key={exercise.id}>
+						<button
+							className={styles.navigate_exercise}
+							onClick={() => {
+								navigate(`/exercises/${exercise.id}`)
+							}}
+						>
+							{exercise.name}
+						</button>
+					</div>
 				))}
 			</div>
 		</>

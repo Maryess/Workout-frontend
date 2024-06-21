@@ -6,7 +6,7 @@ import NewExercise from '../components/screens/new-exercise/NewExercise'
 import NewWorkout from '../components/screens/new-workout/NewWorkout'
 import NotFound from '../components/screens/not-found/Not-found'
 import Profile from '../components/screens/profile/Profile'
-import Workout from '../components/screens/single-workout/Workout'
+import Workout from '../components/screens/workout/single-workout/Workout'
 import WorkoutsList from '../components/screens/workout/WorkoutsList'
 
 const Router = () => {
