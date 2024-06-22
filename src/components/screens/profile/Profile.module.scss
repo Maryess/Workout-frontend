@@ -9,10 +9,10 @@
 	display: flex;
 	text-align: center;
 	justify-content: space-betwenn;
+	margin: 0 auto;
 	max-width: 560px;
 	@media (max-width: $mobile) {
 		width: 90%;
-		margin: 0 auto;
 	}
 	.heading {
 		margin-bottom: 0.5rem;
@@ -24,14 +24,19 @@
 			width: 48%;
 		}
 	}
+}
 
-	img {
+.foto {
+	display: flex;
+
+	> img {
+		max-weight: 200px;
+		min-height: 300px;
 		border-radius: 10px;
-		@media (max-width: 480px) {
-			height: 75%;
-		}
-		@media (max-width: 441px) {
-			height: 70%;
+		object-fit: cover;
+		@media (max-width: $mobile) {
+			width: 94%;
+			margin: 0 auto;
 		}
 	}
 }

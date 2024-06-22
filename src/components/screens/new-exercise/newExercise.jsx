@@ -9,7 +9,7 @@ import ExerciseService from '../../../services/exercise.service'
 import Header from '../../layout/header/Header'
 import Field from '../../ui/field/Field'
 import styles from './NewExercise.module.scss'
-// const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
+const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
 
 const NewExercise = () => {
 	const { register, handleSubmit, reset } = useForm({
@@ -72,6 +72,15 @@ const NewExercise = () => {
 					name={'iconPath'}
 					options={{ required: 'Icons is required' }}
 				/>
+
+				{data.map(name => (
+					<img
+						key={name}
+						src={`uploads/exercises/${name}.svg`}
+						alt=''
+						style={{ width: 30 }}
+					/>
+				))}
 
 				<Button heading='Create' />
 			</form>
