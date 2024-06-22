@@ -3,6 +3,7 @@ import { FaRegUser } from 'react-icons/fa'
 import { useProfile } from '../../../hooks/useProfile'
 import stylesLayout from '../../layout/Layout.module.scss'
 import Header from '../../layout/header/Header'
+import FieldFiles from './FieldFiles'
 import styles from './Profile.module.scss'
 import { images } from './data.image'
 import Statistics from './statistics/Statistics'
@@ -15,7 +16,8 @@ const Profile = () => {
 				className={cn(stylesLayout.wrapper)}
 				style={{
 					backgroundImage: `url('/images/profile 1.svg')`,
-					height: 356
+					height: 356,
+					borderRadius: '0 0 23px 23px'
 				}}
 			>
 				<Header />
@@ -36,7 +38,7 @@ const Profile = () => {
 								{index === 1 ? 'After' : 'Before'}
 							</div>
 
-							<img src={image.img} alt='' draggable={false} />
+							<FieldFiles />
 						</div>
 					))}
 				</div>
