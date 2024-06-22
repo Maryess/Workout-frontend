@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Auth from '../components/screens/auth/Auth'
-import Exercises from '../components/screens/exercises/Exercises'
+import Exercise from '../components/screens/exercise/Exercise'
 import Home from '../components/screens/home/Home'
 import NewExercise from '../components/screens/new-exercise/NewExercise'
 import NewWorkout from '../components/screens/new-workout/NewWorkout'
 import NotFound from '../components/screens/not-found/Not-found'
 import Profile from '../components/screens/profile/Profile'
-import Workout from '../components/screens/single-workout/Workout'
+import Workout from '../components/screens/workout/single-workout/Workout'
 import WorkoutsList from '../components/screens/workout/WorkoutsList'
 
 const Router = () => {
@@ -36,8 +36,8 @@ const Router = () => {
 			errorElement: <NotFound />
 		},
 		{
-			path: '/exercises',
-			element: <Exercises />,
+			path: '/exercises/:id',
+			element: <Exercise />,
 			errorElement: <NotFound />
 		},
 		{

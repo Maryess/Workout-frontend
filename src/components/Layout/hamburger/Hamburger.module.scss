@@ -3,15 +3,18 @@
 
 .hamburger {
 	position: relative;
+	display: flex;
+	div {
+		> button {
+			margin-left: 15px;
+			font-size: 30px;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
 
-	> button {
-		font-size: 30px;
-		background-color: transparent;
-		border: none;
-		cursor: pointer;
-
-		> svg > path {
-			fill: #fff;
+			> svg > path {
+				fill: #fff;
+			}
 		}
 	}
 

@@ -1,5 +1,4 @@
 import styles from './Field.module.scss'
-
 const Field = ({ register, name, error, options, ...rest }) => {
 	return (
 		<div style={{ marginBottom: '1rem' }}>

@@ -5,7 +5,7 @@ import Button from '../../ui/button/Button'
 
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
-import ExerciseService from '../../../services/exerciseService'
+import ExerciseService from '../../../services/exercise.service'
 import Header from '../../layout/header/Header'
 import Field from '../../ui/field/Field'
 import styles from './NewExercise.module.scss'
@@ -33,15 +33,15 @@ const NewExercise = () => {
 
 	return (
 		<>
-			<Header />
 			<div
-				className={cn(stylesLayout.wrapper)}
+				className={cn(stylesLayout.wrapper, stylesLayout.otherPage)}
 				style={{
 					backgroundImage: `url('/images/exercise-bg.svg')`,
 					height: 280,
 					borderRadius: '0 0 23px 23px'
 				}}
 			>
+				<Header />
 				<div className={styles.center}>
 					<h1 className={stylesLayout.heading}>Create new exercise</h1>
 				</div>
@@ -49,14 +49,14 @@ const NewExercise = () => {
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
 				<Field
 					name={'name'}
-					placeholder='Enter name exercise'
+					placeholder='Name '
 					type='text'
 					register={register}
 					options={{ required: 'Exercise is required' }}
 				/>
 
 				<Field
-					placeholder='Enter times'
+					placeholder='Times'
 					register={register}
 					name={'times'}
 					options={{

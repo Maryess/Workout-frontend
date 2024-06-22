@@ -4,7 +4,12 @@ const Loading = () => {
 			<img
 				src='/public/images/loading.svg'
 				alt=''
-				style={{ width: 110, height: 110, margin: '0 auto' }}
+				style={{
+					width: 110,
+					height: 110,
+					margin: '0 auto',
+					position: 'absolute'
+				}}
 			/>
 		</div>
 	)

@@ -9,8 +9,8 @@ class ExerciseService {
 		return await $axios.get(`/exercises`)
 	}
 
-	async getById() {
-		return await $axios.get(`/exercises/:id`)
+	async getById(id) {
+		return await $axios.get(`/exercises/${id}`)
 	}
 }
 
