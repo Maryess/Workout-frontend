@@ -1,15 +1,14 @@
 @import '/src/assets/styles/_variables.scss';
 
 .input {
-	background-color: $dark-gray;
 	padding: 14px;
-	color: white;
+	color: #000;
 	border-radius: 10px;
 	font-size: 20px;
 	width: 100%;
 	outline: none;
 	border: none;
 	&::placeholder {
-		color: white;
+		color: #000;
 	}
 }

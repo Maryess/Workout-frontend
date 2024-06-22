@@ -5,7 +5,6 @@ import stylesLayout from '../../../layout/Layout.module.scss'
 import Header from '../../../layout/header/Header'
 import styles from '../Workout.module.scss'
 import WorkoutService from '/src/services/workout.service'
-
 const Workout = () => {
 	const { id } = useParams()
 

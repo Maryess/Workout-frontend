@@ -1,6 +1,6 @@
 @import '/src/assets/styles/_variables.scss';
 
-.main {
+.button {
 	border-radius: 10px;
 	cursor: pointer;
 	background-color: rgba(255, 255, 255, 0.2);
@@ -11,6 +11,10 @@
 	&:hover {
 		background-color: $dark-gray;
 		opacity: 1;
+	}
+
+	@media (max-width: $mobile) {
+		padding: 13px 27px !important;
 	}
 }
 .heading {

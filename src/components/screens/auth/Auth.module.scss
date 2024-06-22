@@ -1,37 +1,42 @@
 @import '/src/assets/styles/_variables.scss';
 
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	padding: 13px;
+}
+
 .wrapper {
 	background-color: #dec6c6;
 	width: 103px;
 	height: 103px;
 	border-radius: 30px;
-	margin: 0 auto;
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	margin-bottom: 10rem;
+	margin: 0 auto;
+	justify-content: center;
 }
 
-.form {
-	text-align: center;
-	padding: 34px;
-	a {
-		color: #fff;
-		font-size: 16px;
-	}
-}
-.value {
+.main {
+	max-width: $mobile;
 	background-color: #dec6c6;
 	border-radius: 23px;
+	margin-top: 5rem !important ;
+	> form {
+		padding: 24px;
+	}
 }
 
 .wrapperButtons {
+	display: flex;
+	padding: 10px;
+	justify-content: space-between;
+
 	> button {
-		background: none;
-		border: none;
-		cursor: pointer;
-		font-size: 13px;
+		&:active {
+			background-color: $brown !important;
+		}
 	}
-	/* display: flex;
-	justify-content: space-between; */
 }
