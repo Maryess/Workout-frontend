@@ -1,11 +1,11 @@
 import cn from 'clsx'
 import stylesLayout from '../../layout/Layout.module.scss'
-
 import Button from '../../ui/button/Button'
+import '/src/assets/styles/index.scss'
 
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
-import WorkoutService from '../../../services/workout.service'
+import WorkoutService from '../../../services/workout/workout.service'
 import Header from '../../layout/header/Header'
 import Loading from '../../ui/Loading'
 import Field from '../../ui/field/Field'

@@ -1,6 +1,15 @@
-.exercise_log {
+.main {
+	max-width: 450px;
+	margin: 0 auto;
+	background-color: rgba(255, 255, 255, 0.2);
+
+	@media (max-width: 478px) {
+		max-width: 360px;
+	}
+}
+
+.exercise_times {
 	display: flex;
+	alignitems: center;
 	justify-content: space-between;
-	align-items: center;
-	background-color: #342f2f;
 }

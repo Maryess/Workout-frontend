@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import ExerciseLogService from '../../../../../services/exercise-log.service'
+import ExerciseLogService from '../../../../../services/exercise/exercise-log.service'
 import { useUpdateLogTime } from './useUpdateLogTime'
 
 export const useExerciseLog = () => {
@@ -12,8 +12,8 @@ export const useExerciseLog = () => {
 	const { mutate } = useUpdateLogTime()
 
 	const { data } = useQuery(
-		['get exercise-log', 23],
-		() => ExerciseLogService.getById(23),
+		['get exercise-log', id],
+		() => ExerciseLogService.getById(id),
 		{
 			onSuccess(data) {
 				if (data?.data.times?.length) setTimes(data?.data.times)

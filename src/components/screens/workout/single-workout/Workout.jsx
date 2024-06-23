@@ -1,18 +1,19 @@
 import { useQuery } from '@tanstack/react-query'
 import cn from 'clsx'
 import { useNavigate, useParams } from 'react-router-dom'
+import WorkoutLogService from '../../../../services/workout/workout-log.service'
 import stylesLayout from '../../../layout/Layout.module.scss'
 import Header from '../../../layout/header/Header'
+import stylesField from '../../../ui/field/Field.module.scss'
 import styles from '../Workout.module.scss'
-import WorkoutService from '/src/services/workout.service'
 const Workout = () => {
+	const navigate = useNavigate()
 	const { id } = useParams()
 
-	const navigate = useNavigate()
-
 	const { data } = useQuery(['get workout', id], () =>
-		WorkoutService.getById(id)
+		WorkoutLogService.getById(id)
 	)
+
 	console.log(data?.data)
 	return (
 		<>
@@ -25,18 +26,18 @@ const Workout = () => {
 				}}
 			>
 				<Header />
-				<h1>{data?.data.name}</h1>
+				<h1>{data?.data.workout.name}</h1>
 			</div>
 			<div>
-				{data?.data.exercises.map(exercise => (
-					<div key={exercise.id}>
+				{data?.data.logExercises.map(exercise => (
+					<div key={exercise.id} className={styles.workouts}>
 						<button
-							className={styles.navigate_exercise}
+							className={stylesField.input}
 							onClick={() => {
 								navigate(`/exercises/${exercise.id}`)
 							}}
 						>
-							{exercise.name}
+							hi
 						</button>
 					</div>
 				))}

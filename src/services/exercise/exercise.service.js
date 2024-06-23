@@ -1,4 +1,4 @@
-import { $axios } from '../api'
+import { $axios } from '../../api'
 
 class ExerciseService {
 	async create(body) {
