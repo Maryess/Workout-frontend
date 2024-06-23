@@ -5,7 +5,7 @@ import Button from '../../ui/button/Button'
 
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
-import WorkoutService from '../../../services/workout.service'
+import WorkoutService from '../../../services/workout/workout.service'
 import Header from '../../layout/header/Header'
 import Loading from '../../ui/Loading'
 import Field from '../../ui/field/Field'

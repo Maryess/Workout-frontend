@@ -1,15 +1,19 @@
 import { useQuery } from '@tanstack/react-query'
 import cn from 'clsx'
-import { useNavigate } from 'react-router-dom'
-import WorkoutService from '../../../services/workout.service'
+import WorkoutService from '../../../services/workout/workout.service'
 import stylesLayout from '../../layout/Layout.module.scss'
 import Header from '../../layout/header/Header'
-import stylesField from '../../ui/field/Field.module.scss'
 import styles from './Workout.module.scss'
+import Workouts from './Workouts'
+import { useDeleteWorkout } from './hooks/useDeleteWorkout'
+import { useWorkouts } from './hooks/useWorkouts'
 
 const WorkoutsList = () => {
 	const { data } = useQuery(['get workouts'], () => WorkoutService.getAll())
-	const navigate = useNavigate()
+
+	const { mutate } = useWorkouts()
+	const { deleteWorkout } = useDeleteWorkout()
+
 	return (
 		<>
 			<div
@@ -24,18 +28,13 @@ const WorkoutsList = () => {
 			</div>
 
 			<div className={styles.workouts}>
-				{data?.data.map((workout, item) => (
-					<div className={styles.list_navigate} key={item}>
-						<button
-							className={stylesField.input}
-							onClick={() => {
-								navigate(`/workout/${workout.id}`)
-							}}
-							type='text'
-						>
-							{workout.name}
-						</button>
-					</div>
+				{data?.data.map(workout => (
+					<Workouts
+						key={workout.id}
+						workout={workout}
+						mutate={mutate}
+						deleteWorkout={deleteWorkout}
+					/>
 				))}
 			</div>
 		</>

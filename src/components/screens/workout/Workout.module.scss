@@ -11,6 +11,10 @@
 
 .list_navigate {
 	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	> button {
+	}
 }
 
 .navigate_exercise {

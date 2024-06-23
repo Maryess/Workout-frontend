@@ -1,4 +1,4 @@
-import { $axios } from '../api'
+import { $axios } from '../../api'
 
 class ExerciseLogService {
 	async create(exerciseId) {
@@ -10,7 +10,7 @@ class ExerciseLogService {
 	}
 
 	async complete(id, body) {
-		return $axios.patch(`/exercises/log/${id}`, body)
+		return $axios.patch(`/exercises/log/complete${id}`, body)
 	}
 
 	async getAll() {

@@ -1,5 +1,7 @@
+import { useQuery } from '@tanstack/react-query'
 import cn from 'clsx'
 import { useParams } from 'react-router-dom'
+import ExerciseLogService from '../../../services/exercise/exercise-log.service'
 import stylesLayout from '../../layout/Layout.module.scss'
 import Header from '../../layout/header/Header'
 import styles from './Exercises.module.scss'
@@ -8,7 +10,11 @@ import { useExerciseLog } from './exercise-log/hooks/useExerciseLog'
 const Exercise = () => {
 	const { id } = useParams()
 
-	const { data, changeTimesValue, getTime, getTimeValue, updateTimeValue } =
+	const { data } = useQuery(['get exercise-log', id], () =>
+		ExerciseLogService.getById(id)
+	)
+
+	const { changeTimesValue, getTime, getTimeValue, updateTimeValue } =
 		useExerciseLog()
 
 	return (
@@ -72,10 +78,10 @@ const Exercise = () => {
 						<input
 							value={getTimeValue(time.id, 'repeat')}
 							onChange={e => {
-								changeTimesValue(time.id, 'repeat', e.target.value)
+								changeTimesValue(time.id, 'repeat', +e.target.value)
 							}}
 							style={{ width: 20 }}
-							type='number'
+							type='tel'
 						/>
 					</div>
 					<div key={`Completed ${time.id}/${time.isCompleted}`}>

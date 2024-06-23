@@ -1,4 +1,4 @@
-import { $axios } from '../api'
+import { $axios } from '../../api'
 
 class WorkoutService {
 	async create(body) {
@@ -11,6 +11,10 @@ class WorkoutService {
 
 	async getById(id) {
 		return await $axios.get(`/workouts/${id}`)
+	}
+
+	async deleteById(id) {
+		return await $axios.delete(`/workouts/${id}`)
 	}
 }
 

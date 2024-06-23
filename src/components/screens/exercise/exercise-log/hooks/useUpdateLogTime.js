@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
-import ExerciseLogService from '../../../../../services/exercise-log.service'
+import ExerciseLogService from '../../../../../services/exercise/exercise-log.service'
 
 export const useUpdateLogTime = () => {
 	const { id } = useParams()
@@ -8,12 +8,12 @@ export const useUpdateLogTime = () => {
 	const queryClient = useQueryClient()
 
 	const { mutate } = useMutation(
-		['get exercise-log', 23],
-		() => ExerciseLogService.updateTime(23),
+		['get exercise-log', id],
+		() => ExerciseLogService.updateTime(id),
 		({ timeId, body }) => ExerciseLogService.updateTime(timeId, body),
 		{
 			onSuccess: () => {
-				queryClient.invalidateQueries(['get exercise log', 23])
+				queryClient.invalidateQueries(['get exercise log', id])
 			}
 		}
 	)
