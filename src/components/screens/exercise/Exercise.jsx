@@ -41,65 +41,62 @@ const Exercise = () => {
 					<div>Completed</div>
 				</div>
 			</div>
-
-			{data?.data.times.map(time => (
-				<div
-					style={{
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'space-between'
-					}}
-					key={time.id}
-				>
-					<div style={{ display: 'flex' }}>
-						<input
-							style={{ width: 20 }}
-							type='number'
-							defaultValue={time.prevWeight}
-						/>
-						<p>/kg</p>
-						<input
-							style={{ width: 20 }}
-							type='number'
-							defaultValue={time.repeat}
-						/>
+			<div className={styles.main}>
+				{data?.data.times.map(time => (
+					<div className={styles.exercise_times} key={time.id}>
+						<div style={{ display: 'flex' }}>
+							<input
+								style={{ width: 20 }}
+								type='number'
+								defaultValue={time.prevWeight}
+							/>
+							<p>/kg</p>
+							<input
+								style={{ width: 20 }}
+								type='number'
+								defaultValue={time.repeat}
+							/>
+						</div>
+						<div style={{ display: 'flex' }}>
+							<input
+								value={getTimeValue(time.id, 'weight')}
+								onChange={e => {
+									changeTimesValue(time.id, 'weight', +e.target.value)
+								}}
+								disabled={time.isCompleted}
+								style={{ width: 20 }}
+								type='tel'
+							/>
+							<p>/kg</p>
+							<input
+								value={getTimeValue(time.id, 'repeat')}
+								onChange={e => {
+									changeTimesValue(time.id, 'repeat', +e.target.value)
+								}}
+								style={{ width: 20 }}
+								type='tel'
+							/>
+						</div>
+						<div key={`Completed ${time.id}/${time.isCompleted}`}>
+							<img
+								src={
+									getTimeValue(time.id, 'isCompleted')
+										? '/src/assets/icons/complete.svg'
+										: '/src/assets/icons/completed.svg'
+								}
+								alt=''
+								style={{ width: 20 }}
+								onClick={() =>
+									updateTimeValue(
+										time.id,
+										!getTimeValue(time.id, 'isCompleted')
+									)
+								}
+							/>
+						</div>
 					</div>
-					<div style={{ display: 'flex' }}>
-						<input
-							value={getTimeValue(time.id, 'weight')}
-							onChange={e => {
-								changeTimesValue(time.id, 'weight', +e.target.value)
-							}}
-							disabled={time.isCompleted}
-							style={{ width: 20 }}
-							type='tel'
-						/>
-						<p>/kg</p>
-						<input
-							value={getTimeValue(time.id, 'repeat')}
-							onChange={e => {
-								changeTimesValue(time.id, 'repeat', +e.target.value)
-							}}
-							style={{ width: 20 }}
-							type='tel'
-						/>
-					</div>
-					<div key={`Completed ${time.id}/${time.isCompleted}`}>
-						<img
-							src={
-								getTimeValue(time.id, 'isCompleted')
-									? '/src/assets/icons/complete.svg'
-									: '/src/assets/icons/completed.svg'
-							}
-							alt=''
-							style={{ width: 20 }}
-							onClick={() =>
-								updateTimeValue(time.id, !getTimeValue(time.id, 'isCompleted'))
-							}
-						/>
-					</div>
-				</div>
-			))}
+				))}
+			</div>
 		</>
 	)
 }

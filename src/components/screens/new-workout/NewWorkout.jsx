@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import stylesLayout from '../../layout/Layout.module.scss'
-
 import Button from '../../ui/button/Button'
+import '/src/assets/styles/index.scss'
 
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'

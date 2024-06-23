@@ -1,15 +1,12 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import WorkoutLogService from '../../../../services/workout/workout-log.service'
+import WorkoutService from '../../../../services/workout/workout.service'
 
 export const useWorkouts = () => {
 	const navigate = useNavigate()
 
-	const { id } = useParams()
-
-	const { data } = useQuery(['get workout', id], () =>
-		WorkoutLogService.getById(id)
-	)
+	const { data } = useQuery(['get workouts'], () => WorkoutService.getAll())
 
 	const { mutate } = useMutation(
 		['create log workout'],

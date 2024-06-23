@@ -47,9 +47,7 @@ body {
 }
 
 body {
-	[data-theme='gray'] {
-		background-color: #333;
-	}
+	background-color: #333;
 	padding: 0;
 	margin: 0;
 	color: #fff;
@@ -85,5 +83,43 @@ img {
 
 	&:hover {
 		color: darken($gray, 10%);
+	}
+}
+
+.exercises_list {
+	&__control {
+		background-color: rgba(255, 255, 255, 0.5) !important;
+		padding: 8px !important;
+		border-radius: 10px !important;
+		font-size: 20px !important;
+		color: #000 !important;
+		border: none !important;
+		outline: none !important;
+		&--menu-is-open {
+			background-color: rgba(255, 255, 255, 0.2) !important;
+		}
+	}
+
+	&__multi-value {
+		border-radius: 10px !important;
+	}
+	&__multi-value__remove {
+		color: #000 !important;
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.2) !important;
+		}
+	}
+
+	&__menu {
+		color: #000 !important;
+		border-radius: 10px !important;
+		background-color: rgba(255, 255, 255, 0.8) !important;
+	}
+
+	&__option {
+		cursor: pointer !important;
+		&--is-focused {
+			background-color: rgba(255, 255, 255, 0.2) !important;
+		}
 	}
 }

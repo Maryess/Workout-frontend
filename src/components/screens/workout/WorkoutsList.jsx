@@ -3,7 +3,6 @@ import cn from 'clsx'
 import WorkoutService from '../../../services/workout/workout.service'
 import stylesLayout from '../../layout/Layout.module.scss'
 import Header from '../../layout/header/Header'
-import styles from './Workout.module.scss'
 import Workouts from './Workouts'
 import { useDeleteWorkout } from './hooks/useDeleteWorkout'
 import { useWorkouts } from './hooks/useWorkouts'
@@ -27,16 +26,14 @@ const WorkoutsList = () => {
 				<Header />
 			</div>
 
-			<div className={styles.workouts}>
-				{data?.data.map(workout => (
-					<Workouts
-						key={workout.id}
-						workout={workout}
-						mutate={mutate}
-						deleteWorkout={deleteWorkout}
-					/>
-				))}
-			</div>
+			{data?.data.map(workout => (
+				<Workouts
+					key={workout.id}
+					workout={workout}
+					mutate={mutate}
+					deleteWorkout={deleteWorkout}
+				/>
+			))}
 		</>
 	)
 }
