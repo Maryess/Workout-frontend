@@ -47,7 +47,7 @@ body {
 }
 
 body {
-	background-color: #333;
+	background-color: var(--bg-color);
 	padding: 0;
 	margin: 0;
 	color: #fff;
@@ -62,28 +62,8 @@ img {
 	max-width: 100%;
 }
 
-.img-responsive {
-	display: block;
-	max-width: 100%;
-	height: auto;
-}
-
 #root {
 	height: 100%;
-}
-
-.dark-link {
-	text-align: right;
-	width: 100%;
-	display: block;
-	margin-bottom: 0.5rem;
-	text-decoration: none;
-	color: $darken-gray;
-	transition: color 0.3s ease;
-
-	&:hover {
-		color: darken($gray, 10%);
-	}
 }
 
 .exercises_list {

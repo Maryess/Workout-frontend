@@ -4,7 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../hooks/useAuth'
 import Hamburger from '../hamburger/Hamburger'
 import styles from './Header.module.scss'
-const Header = () => {
+import Palette from './palette/Palette'
+const Header = ({ backlink = '/' }) => {
 	const { pathname } = useLocation()
 	const navigate = useNavigate()
 	const { isAuth } = useAuth()
@@ -14,7 +15,7 @@ const Header = () => {
 			{pathname !== '/' || !isAuth ? (
 				<button
 					onClick={() => {
-						navigate(isAuth ? '/' : '/auth')
+						navigate(isAuth ? backlink : '/auth')
 					}}
 				>
 					<IoArrowBack color='#fff' fontSize={30} />
@@ -28,7 +29,13 @@ const Header = () => {
 					<FaRegUser color='#fff' fontSize={30} />
 				</button>
 			)}
-			{isAuth && <Hamburger />}
+			{isAuth ? (
+				<div style={{ position: 'relative', display: 'flex' }}>
+					<Palette /> <Hamburger />
+				</div>
+			) : (
+				<Palette />
+			)}
 		</header>
 	)
 }

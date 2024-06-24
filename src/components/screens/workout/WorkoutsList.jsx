@@ -10,7 +10,7 @@ import { useWorkouts } from './hooks/useWorkouts'
 const WorkoutsList = () => {
 	const { data } = useQuery(['get workouts'], () => WorkoutService.getAll())
 
-	const { mutate } = useWorkouts()
+	const { mutate, isSuccess, isSuccessMutate } = useWorkouts()
 	const { deleteWorkout } = useDeleteWorkout()
 
 	return (
@@ -24,16 +24,22 @@ const WorkoutsList = () => {
 				}}
 			>
 				<Header />
+
+				<h1 className={stylesLayout.heading}>Create new workout</h1>
 			</div>
 
-			{data?.data.map(workout => (
-				<Workouts
-					key={workout.id}
-					workout={workout}
-					mutate={mutate}
-					deleteWorkout={deleteWorkout}
-				/>
-			))}
+			{isSuccessMutate && alert('created')}
+			{isSuccess &&
+				data?.data.map(workout => (
+					<Workouts
+						key={workout.id}
+						workout={workout}
+						mutate={mutate}
+						deleteWorkout={deleteWorkout}
+					/>
+				))}
+
+			{isSuccess && data?.data.length === 0}
 		</>
 	)
 }

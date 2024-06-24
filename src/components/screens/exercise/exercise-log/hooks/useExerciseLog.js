@@ -11,7 +11,7 @@ export const useExerciseLog = () => {
 
 	const { mutate } = useUpdateLogTime()
 
-	const { data } = useQuery(
+	const { data, isSuccess } = useQuery(
 		['get exercise-log', id],
 		() => ExerciseLogService.getById(id),
 		{
@@ -62,6 +62,7 @@ export const useExerciseLog = () => {
 		changeTimesValue,
 		getTime,
 		getTimeValue,
-		updateTimeValue
+		updateTimeValue,
+		isSuccess
 	}
 }

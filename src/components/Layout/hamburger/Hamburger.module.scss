@@ -2,8 +2,6 @@
 @import 'src/assets/styles/animations';
 
 .hamburger {
-	position: relative;
-	display: flex;
 	div {
 		> button {
 			margin-left: 15px;
@@ -13,7 +11,7 @@
 			cursor: pointer;
 
 			> svg > path {
-				fill: #fff;
+				fill: $white;
 			}
 		}
 	}
@@ -22,7 +20,7 @@
 		position: absolute;
 		top: calc(100% + 8px);
 		right: 0;
-		background-color: #fff;
+		background-color: $white;
 		padding: 10px 12px;
 		font-size: 14px;
 		border-radius: 10px 0 10px 10px;
