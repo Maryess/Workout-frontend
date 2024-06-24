@@ -1,8 +1,7 @@
-@import 'src/assets/styles/variables';
-
+@import '/src/assets/styles/_variables.scss';
+@import '/src/assets/styles/_mixins.scss';
 .header {
-	display: $flex;
-	justify-content: space-between;
+	@include display-space-between;
 	padding: 25px;
 	> button {
 		background-color: transparent;

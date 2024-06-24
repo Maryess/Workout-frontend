@@ -1,7 +1,10 @@
+@import '/src/assets/styles/_mixins.scss';
+
 .workouts {
-	margin-top: 1rem;
+	@include page;
+
+	padding: 34px;
 	> button {
-		display: flex;
-		justify-content: space-between;
+		@include display-space-between;
 	}
 }

@@ -44,7 +44,7 @@ const NewWorkout = () => {
 			<div
 				className={cn(stylesLayout.wrapper, stylesLayout.otherPage)}
 				style={{
-					backgroundImage: `url('/images/workouts-bg.jpg')`,
+					backgroundImage: `url('/images/create-new.jpg')`,
 					height: 280,
 					borderRadius: '0 0 23px 23px'
 				}}

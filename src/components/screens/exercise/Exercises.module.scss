@@ -1,15 +1,43 @@
-.main {
-	max-width: 450px;
-	margin: 0 auto;
-	background-color: rgba(255, 255, 255, 0.2);
+@import '/src/assets/styles/_variables.scss';
+@import '/src/assets/styles/_mixins.scss';
 
-	@media (max-width: 478px) {
-		max-width: 360px;
+.exercise_log {
+	@include page;
+	padding: 16px 36px;
+	align-items: center;
+	max-height: 511px;
+	@media (max-width: $mobile) {
+		padding: 20px 30px !important;
+	}
+}
+.title {
+	@include display-space-between;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.main {
+	background-color: $bg-color-opacity;
+	border-radius: 10px;
+	height: 100%;
+
+	@media (max-width: $mobile) {
+		height: 80%;
 	}
 }
 
 .exercise_times {
-	display: flex;
-	alignitems: center;
-	justify-content: space-between;
+	@include display-space-between;
+	align-items: center;
+
+	> div {
+		margin: 0 auto;
+		> input {
+			width: 40px;
+			background-color: transparent;
+			border: none;
+			color: $white;
+			font-size: 15px;
+		}
+	}
 }

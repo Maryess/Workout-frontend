@@ -13,6 +13,7 @@ const Workouts = ({ workout, mutate, deleteWorkout }) => {
 				>
 					{workout.name}
 					<RiDeleteBin5Line
+						fontSize={25}
 						onClick={() => {
 							deleteWorkout(workout.id)
 						}}

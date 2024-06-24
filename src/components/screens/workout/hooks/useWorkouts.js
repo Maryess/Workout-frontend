@@ -6,20 +6,24 @@ import WorkoutService from '../../../../services/workout/workout.service'
 export const useWorkouts = () => {
 	const navigate = useNavigate()
 
-	const { data } = useQuery(['get workouts'], () => WorkoutService.getAll())
+	const { data, isSuccess } = useQuery(['get workouts'], () =>
+		WorkoutService.getAll()
+	)
 
-	const { mutate } = useMutation(
+	const { mutate, isSuccess: isSuccessMutate } = useMutation(
 		['create log workout'],
 		workoutId => WorkoutLogService.create(workoutId),
 		{
-			onSuccess({ data }) {
-				navigate(`/workout/${data.id}`)
+			onSuccess(data) {
+				navigate(`/workout/${data.data.id}`)
 			}
 		}
 	)
 
 	return {
 		data,
-		mutate
+		mutate,
+		isSuccess,
+		isSuccessMutate
 	}
 }

@@ -36,7 +36,7 @@ const NewExercise = () => {
 			<div
 				className={cn(stylesLayout.wrapper, stylesLayout.otherPage)}
 				style={{
-					backgroundImage: `url('/images/exercise-bg.svg')`,
+					backgroundImage: `url('/images/exercise-bg.jpg')`,
 					height: 280,
 					borderRadius: '0 0 23px 23px'
 				}}

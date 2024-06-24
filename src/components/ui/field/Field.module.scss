@@ -1,7 +1,7 @@
 @import '/src/assets/styles/_variables.scss';
 
 .input {
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: $bg-color-ui;
 	padding: 14px;
 	color: #000;
 	border-radius: 10px;

@@ -3,23 +3,23 @@
 .button {
 	border-radius: 10px;
 	cursor: pointer;
-	background-color: rgba(255, 255, 255, 0.2);
+	background-color: $bg-color-opacity;
 	transition: background-color 0.4s ease;
 	border: none;
-	padding: 13px 48px;
+	padding: 10px 20px;
 	outline: none;
 	&:hover {
-		background-color: rgba(255, 255, 255, 0.1);
+		background-color: $bg-color-opacity;
 		opacity: 1;
 	}
 
 	@media (max-width: $mobile) {
-		padding: 13px 27px !important;
+		padding: 9px 16px !important;
 	}
 }
 .heading {
 	font-size: 24px;
-	color: #fff;
+	color: $white;
 }
 .wrapper {
 	text-align: center;

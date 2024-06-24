@@ -7,9 +7,8 @@ export const useUpdateLogTime = () => {
 
 	const queryClient = useQueryClient()
 
-	const { mutate } = useMutation(
-		['get exercise-log', id],
-		() => ExerciseLogService.updateTime(id),
+	const { mutate, isSuccess } = useMutation(
+		['update exercise-log time'],
 		({ timeId, body }) => ExerciseLogService.updateTime(timeId, body),
 		{
 			onSuccess: () => {
@@ -19,6 +18,7 @@ export const useUpdateLogTime = () => {
 	)
 
 	return {
-		mutate
+		mutate,
+		isSuccess
 	}
 }

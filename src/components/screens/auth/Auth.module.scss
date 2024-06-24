@@ -1,42 +1,34 @@
 @import '/src/assets/styles/_variables.scss';
+@import '/src/assets/styles/_mixins.scss';
 
 .content {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 100%;
-	padding: 13px;
+	@include page;
 }
 
 .wrapper {
-	background-color: #dec6c6;
+	background-color: $bg-color-ui;
 	width: 103px;
 	height: 103px;
 	border-radius: 30px;
-	display: flex;
-	align-items: center;
-	margin: 0 auto;
-	justify-content: center;
+	@include display-center;
 }
 
 .main {
-	max-width: $mobile;
-	background-color: #dec6c6;
+	@include display-center;
+
+	padding: 35px 45px;
+	background-color: $bg-color-ui;
 	border-radius: 23px;
 	margin-top: 5rem !important ;
 	> form {
-		padding: 24px;
+		width: 100%;
 	}
 }
 
 .wrapperButtons {
 	display: flex;
-	padding: 10px;
 	justify-content: space-between;
-
-	> button {
-		&:active {
-			background-color: $brown !important;
-		}
-	}
 }

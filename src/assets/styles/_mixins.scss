@@ -1,0 +1,17 @@
+@mixin page {
+	max-width: 560px;
+	margin: 0 auto;
+	height: 100%;
+}
+
+@mixin display-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+@mixin display-space-between {
+	display: flex;
+	justify-content: space-between;
+}

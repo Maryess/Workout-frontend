@@ -26,18 +26,18 @@ const Workout = () => {
 				}}
 			>
 				<Header />
-				<h1>{data?.data.workout.name}</h1>
+				<h1 className={stylesLayout.heading}>{data?.data.workout.name}</h1>
 			</div>
 			<div>
-				{data?.data.logExercises.map(exercise => (
-					<div key={exercise.id} className={styles.workouts}>
+				{data?.data.logExercises.map(logExercise => (
+					<div key={logExercise.id} className={styles.workouts}>
 						<button
 							className={stylesField.input}
 							onClick={() => {
-								navigate(`/exercises/${exercise.id}`)
+								navigate(`/exercises/${logExercise.id}`)
 							}}
 						>
-							hi
+							{logExercise.exercise.name}
 						</button>
 					</div>
 				))}

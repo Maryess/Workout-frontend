@@ -1,8 +1,8 @@
 @import '/src/assets/styles/_variables.scss';
+@import '/src/assets/styles/_mixins.scss';
 
 .wrapper {
-	display: flex;
-	justify-content: space-between;
+	@include display-space-between;
 	flex-direction: column;
 	height: 100%;
 	max-width: 560px;
@@ -17,7 +17,7 @@
 	&.otherPage {
 		height: 280px;
 		border-radius: 0 0 23px 23px;
-		box-shadow: $dark-gray;
+		box-shadow: 5px 5px 5px 5px $bg-color-ui;
 		@media (max-width: $mobile) {
 			height: 260px !important;
 		}
