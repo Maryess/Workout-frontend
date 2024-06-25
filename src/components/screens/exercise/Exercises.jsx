@@ -13,6 +13,8 @@ const Exercises = ({ exercise }) => {
 					}}
 				>
 					<span>{exercise.exercise.name}</span>
+
+					<img src={exercise.exercise.iconPath} alt='' />
 				</button>
 			</div>
 		</>

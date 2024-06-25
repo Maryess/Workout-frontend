@@ -12,8 +12,7 @@ import Field from '../../ui/field/Field'
 import Error from '../../ui/status/Error'
 import Success from '../../ui/status/Success'
 import styles from './NewExercise.module.scss'
-import { getIconPath } from './get-icon-path'
-const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
+import { icons } from './icons.dara'
 
 const NewExercise = () => {
 	const { register, handleSubmit, reset, control } = useForm({
@@ -77,6 +76,23 @@ const NewExercise = () => {
 				<Controller
 					name='iconPath'
 					control={control}
+					render={({ field: { onChange } }) => (
+						<div className={styles.icon}>
+							{icons.map(icon => (
+								<img
+									key={icon.id}
+									src={icon.url}
+									alt={icon.name}
+									onClick={() => onChange(icon.url)}
+								/>
+							))}
+						</div>
+					)}
+				/>
+
+				{/* <Controller
+					name='iconPath'
+					control={control}
 					render={({ field: { value, onChange } }) => (
 						<div>
 							{data.map(name => (
@@ -91,7 +107,7 @@ const NewExercise = () => {
 							))}
 						</div>
 					)}
-				/>
+				/> */}
 
 				<Button heading='Create' />
 			</form>

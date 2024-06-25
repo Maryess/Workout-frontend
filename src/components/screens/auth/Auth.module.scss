@@ -1,11 +1,13 @@
 @import '/src/assets/styles/_variables.scss';
 @import '/src/assets/styles/_mixins.scss';
 
-.content {
+.main {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	@include page;
+	padding: 23px;
+	height: 100%;
 }
 
 .wrapper {
@@ -16,8 +18,7 @@
 	@include display-center;
 }
 
-.main {
-	@include display-center;
+.content {
 	padding: 13px;
 	background-color: $bg-color-ui;
 	border-radius: 23px;

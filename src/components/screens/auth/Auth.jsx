@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import cn from 'clsx'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -15,6 +15,7 @@ import styles from './Auth.module.scss'
 const Auth = () => {
 	const { isAuth, setIsAuth } = useAuth()
 	const navigate = useNavigate()
+	const queryClient = useQueryClient()
 
 	console.log(isAuth)
 	const {
@@ -35,6 +36,7 @@ const Auth = () => {
 			onSuccess: () => {
 				setIsAuth(!isAuth)
 				navigate('/')
+				window.location.reload()
 				reset()
 			}
 		}
@@ -49,12 +51,12 @@ const Auth = () => {
 			<div className={cn(stylesPalette.palette)}>
 				<Palette auth={true} />
 			</div>
-			<div className={styles.content}>
+			<div className={styles.main}>
 				<div className={styles.wrapper}>
 					<img src='/src/assets/icons/main.svg' style={{ height: 56 }} alt='' />
 				</div>
 				{isLoading ? <Loading /> : ''}
-				<div className={styles.main}>
+				<div className={styles.content}>
 					<form onSubmit={handleSubmit(onSubmit)}>
 						<div style={{ marginBottom: '4rem' }}>
 							<Field
