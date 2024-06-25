@@ -56,23 +56,24 @@ const Auth = () => {
 				{isLoading ? <Loading /> : ''}
 				<div className={styles.main}>
 					<form onSubmit={handleSubmit(onSubmit)}>
-						<Field
-							error={errors?.email?.message}
-							name={'email'}
-							placeholder='Enter email'
-							type='text'
-							register={register}
-							options={{ required: 'Email is required' }}
-						/>
+						<div style={{ marginBottom: '4rem' }}>
+							<Field
+								error={errors?.email?.message}
+								name={'email'}
+								placeholder='Enter email'
+								type='text'
+								register={register}
+								options={{ required: 'Email is required' }}
+							/>
 
-						<Field
-							placeholder='Enter password'
-							type='password'
-							register={register}
-							name={'password'}
-							options={{ required: 'Password is required' }}
-						/>
-
+							<Field
+								placeholder='Enter password'
+								type='password'
+								register={register}
+								name={'password'}
+								options={{ required: 'Password is required' }}
+							/>
+						</div>
 						<div className={styles.wrapperButtons}>
 							<Button
 								click={() => {

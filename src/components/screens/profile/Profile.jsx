@@ -34,7 +34,7 @@ const Profile = () => {
 					{images.map((image, index) => (
 						<div key={index}>
 							<div className={styles.heading}>
-								{index === 1 ? 'After' : 'Before'}
+								<p>{index === 1 ? 'After' : 'Before'}</p>
 							</div>
 							<div className={styles.foto}>
 								<img src={image.img} alt='' />

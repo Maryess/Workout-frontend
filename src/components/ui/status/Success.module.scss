@@ -1,0 +1,15 @@
+@import '/src/assets/styles/_variables.scss';
+@import '/src/assets/styles/_mixins.scss';
+@import '/src/assets/styles/_animations.scss';
+.success {
+	position: absolute;
+	right: 0;
+	background-color: #556b2f;
+	padding: 8px;
+	border-radius: 8px;
+	animation: appearance 8s ease forwards;
+
+	&.error {
+		background-color: #ff6347 !important;
+	}
+}

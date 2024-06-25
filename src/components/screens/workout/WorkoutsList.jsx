@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
-import cn from 'clsx'
+import { Fragment } from 'react'
 import WorkoutService from '../../../services/workout/workout.service'
-import stylesLayout from '../../layout/Layout.module.scss'
-import Header from '../../layout/header/Header'
+import Layout from '../../layout/Layout'
+import Success from '../../ui/status/Success'
+import styles from './Workout.module.scss'
 import Workouts from './Workouts'
 import { useDeleteWorkout } from './hooks/useDeleteWorkout'
 import { useWorkouts } from './hooks/useWorkouts'
-
 const WorkoutsList = () => {
 	const { data } = useQuery(['get workouts'], () => WorkoutService.getAll())
 
@@ -15,31 +15,28 @@ const WorkoutsList = () => {
 
 	return (
 		<>
-			<div
-				className={cn(stylesLayout.wrapper, stylesLayout.otherPage)}
-				style={{
-					backgroundImage: `url('/images/workouts-bg.jpg')`,
-					height: 280,
-					borderRadius: '0 0 23px 23px'
-				}}
-			>
-				<Header />
+			<Layout bgImage={'/public/images/workouts-bg.jpg'} heading='Workouts' />
 
-				<h1 className={stylesLayout.heading}>Create new workout</h1>
+			<div className={styles.main}>
+				{isSuccessMutate && <Success value={'Workout log created'} />}
+				{isSuccess && (
+					<div className={styles.workouts}>
+						{data?.data.map((workout, index) => (
+							<Fragment key={workout.id}>
+								<Workouts
+									key={workout.id}
+									workout={workout}
+									mutate={mutate}
+									deleteWorkout={deleteWorkout}
+								/>
+								{index % 2 !== 0 && index !== data.data.length - 1 && (
+									<div className={styles.line}></div>
+								)}
+							</Fragment>
+						))}
+					</div>
+				)}
 			</div>
-
-			{isSuccessMutate && alert('created')}
-			{isSuccess &&
-				data?.data.map(workout => (
-					<Workouts
-						key={workout.id}
-						workout={workout}
-						mutate={mutate}
-						deleteWorkout={deleteWorkout}
-					/>
-				))}
-
-			{isSuccess && data?.data.length === 0}
 		</>
 	)
 }

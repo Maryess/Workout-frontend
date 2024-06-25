@@ -1,17 +1,16 @@
 import { RiDeleteBin5Line } from 'react-icons/ri'
-import stylesField from '../../ui/field/Field.module.scss'
 import styles from './Workout.module.scss'
 const Workouts = ({ workout, mutate, deleteWorkout }) => {
 	return (
 		<>
-			<div className={styles.workouts}>
+			<div className={styles.button}>
 				<button
-					className={stylesField.input}
+					aria-label='Create new workout'
 					onClick={() => {
 						mutate(workout.id)
 					}}
 				>
-					{workout.name}
+					<span> {workout.name} </span>
 					<RiDeleteBin5Line
 						fontSize={25}
 						onClick={() => {

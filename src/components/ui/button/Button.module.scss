@@ -3,7 +3,7 @@
 .button {
 	border-radius: 10px;
 	cursor: pointer;
-	background-color: $bg-color-opacity;
+	background-color: var(--bg-color-form);
 	transition: background-color 0.4s ease;
 	border: none;
 	padding: 10px 20px;

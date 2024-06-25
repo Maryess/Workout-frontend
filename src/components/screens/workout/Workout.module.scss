@@ -1,10 +1,34 @@
 @import '/src/assets/styles/_mixins.scss';
-
+@import '/src/assets/styles/_variables.scss';
 .workouts {
-	@include page;
-
-	padding: 34px;
-	> button {
-		@include display-space-between;
+	> div.button {
+		margin-bottom: 30px;
+		background-color: #342f2f;
+		width: 90%;
+		margin: 0 auto;
+		border-radius: 10px;
+		> button {
+			@include display-space-between;
+			padding: 14px 20px;
+			text-decoration: none;
+			align-items: center;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+			margin-top: 30px;
+			background-color: transparent;
+			color: $white;
+			font-size: 20px;
+		}
 	}
+}
+.line {
+	wisth: 100%;
+	height: 1px;
+	background-color: $dark-gray;
+	margin-top: 30px;
+}
+
+.main {
+	@include page;
 }

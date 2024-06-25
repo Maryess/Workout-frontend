@@ -21,7 +21,8 @@ const Palette = ({ auth }) => {
 					fontSize={30}
 					style={{
 						backgroundColor: 'transparent',
-						cursor: 'pointer'
+						cursor: 'pointer',
+						color: '#fff'
 					}}
 				/>
 			</div>

@@ -1,15 +1,15 @@
 @import '/src/assets/styles/_variables.scss';
 
 .input {
-	background-color: $bg-color-ui;
+	background-color: var(--bg-color-form);
 	padding: 14px;
-	color: #000;
+	color: var(--color-text);
 	border-radius: 10px;
 	font-size: 20px;
 	width: 100%;
 	outline: none;
 	border: none;
 	&::placeholder {
-		color: #000;
+		color: var(--color-text);
 	}
 }
