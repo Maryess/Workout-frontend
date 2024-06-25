@@ -18,8 +18,7 @@
 
 .main {
 	@include display-center;
-
-	padding: 35px 45px;
+	padding: 13px;
 	background-color: $bg-color-ui;
 	border-radius: 23px;
 	margin-top: 5rem !important ;
@@ -29,6 +28,7 @@
 }
 
 .wrapperButtons {
-	display: flex;
-	justify-content: space-between;
+	@include display-space-between;
+	margin: 0 auto;
+	width: 80%;
 }

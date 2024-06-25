@@ -2,6 +2,7 @@
 @import '/src/assets/styles/_mixins.scss';
 .form {
 	padding: 44px;
+	@include page;
 }
 
 .list {
@@ -19,5 +20,22 @@
 	> button {
 		background-color: $dark-gray;
 		border: none;
+	}
+}
+
+.link {
+	color: $white;
+	right: 0;
+	text-decoration: none;
+	opacity: 0.5;
+	cursor: pointer;
+
+	@media (max-width: $mobile) {
+		font-size: 18px;
+	}
+
+	&:hover {
+		color: $gray;
+		transition: color 0.3s ease;
 	}
 }

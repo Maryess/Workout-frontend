@@ -1,3 +1,6 @@
+@import '/src/assets/styles/_mixins.scss';
+
 .form {
 	padding: 44px;
+	@include page;
 }

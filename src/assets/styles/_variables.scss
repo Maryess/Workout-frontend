@@ -2,18 +2,28 @@
 
 html[data-theme='gray'] {
 	--bg-color: #333;
+	--bg-color-form: #342f2f;
+	--color-text: #f1e8e8;
 }
-html[data-theme='yellow'] {
-	--bg-color: #bfbd83;
+html[data-theme='white'] {
+	--bg-color: #ddd6d6;
+	--bg-color-form: rgba(255, 255, 255, 0.5);
+	--color-text: #000;
 }
 html[data-theme='blue'] {
 	--bg-color: #77a3b0;
+	--bg-color-form: rgba(255, 255, 255, 0.5);
+	--color-text: #000;
 }
 html[data-theme='red'] {
 	--bg-color: #966262;
+	--bg-color-form: rgba(255, 255, 255, 0.5);
+	--color-text: #000;
 }
 html[data-theme='green'] {
 	--bg-color: rgb(101, 134, 102);
+	--bg-color-form: rgba(255, 255, 255, 0.5);
+	--color-text: #000;
 }
 
 $bg-color-ui: rgba(255, 255, 255, 0.5);
@@ -22,7 +32,6 @@ $gray: #b53471;
 $dark-gray: #414141;
 $pink: #fad4e4;
 $white: #f1e8e8;
-
 $default-font: 'Sofia Sans', sans-seri;
 
 $mobile: 512px;

@@ -5,6 +5,7 @@ import '/src/assets/styles/index.scss'
 
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import WorkoutService from '../../../services/workout/workout.service'
 import Header from '../../layout/header/Header'
 import Loading from '../../ui/Loading'
@@ -50,25 +51,29 @@ const NewWorkout = () => {
 				}}
 			>
 				<Header />
+				{isLoading ? <Loading /> : null}
 				<div className={styles.center}>
 					<h1 className={stylesLayout.heading}>Create new workout</h1>
 				</div>
 			</div>
-			{isLoading ? <Loading /> : null}
+
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-				<div style={{ marginBottom: '2rem' }}>
-					<Field
-						name={'name'}
-						placeholder='Enter name'
-						type='text'
-						register={register}
-						options={{ required: 'Exercise is required' }}
-					/>
+				<Field
+					name={'name'}
+					placeholder='Enter name'
+					type='text'
+					register={register}
+					options={{ required: 'Exercise is required' }}
+				/>
+
+				<Link to={'/new-exercise'} className={styles.link}>
+					Add new exercise
+				</Link>
+
+				<ExercisesList control={control} />
+				<div style={{ marginTop: '3rem' }}>
+					<Button heading='Create' />
 				</div>
-				<div style={{ marginBottom: '3rem' }}>
-					<ExercisesList control={control} />
-				</div>
-				<Button heading='Create' />
 			</form>
 		</>
 	)

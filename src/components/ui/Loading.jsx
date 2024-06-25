@@ -2,13 +2,13 @@ const Loading = () => {
 	return (
 		<div>
 			<img
-				src='/public/images/loading.svg'
+				src='/public/images/spinning-dots.svg'
 				alt=''
 				style={{
-					width: 110,
-					height: 110,
-					margin: '0 auto',
-					position: 'absolute'
+					width: 70,
+					height: 70,
+					position: 'absolute',
+					right: '43%'
 				}}
 			/>
 		</div>
