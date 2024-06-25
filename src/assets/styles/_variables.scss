@@ -11,22 +11,22 @@ html[data-theme='white'] {
 	--color-text: #000;
 }
 html[data-theme='blue'] {
-	--bg-color: #77a3b0;
+	--bg-color: #1c3942;
 	--bg-color-form: rgba(255, 255, 255, 0.5);
 	--color-text: #000;
 }
 html[data-theme='red'] {
-	--bg-color: #966262;
+	--bg-color: #6c3d3d;
 	--bg-color-form: rgba(255, 255, 255, 0.5);
 	--color-text: #000;
 }
 html[data-theme='green'] {
-	--bg-color: rgb(101, 134, 102);
+	--bg-color: #365237;
 	--bg-color-form: rgba(255, 255, 255, 0.5);
 	--color-text: #000;
 }
 
-$bg-color-ui: rgba(255, 255, 255, 0.5);
+$bg-color-ui: rgba(255, 255, 255, 0.1);
 $bg-color-opacity: rgba(255, 255, 255, 0.2);
 $gray: #b53471;
 $dark-gray: #414141;

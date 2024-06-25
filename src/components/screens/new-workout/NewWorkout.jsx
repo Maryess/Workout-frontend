@@ -10,6 +10,7 @@ import WorkoutService from '../../../services/workout/workout.service'
 import Header from '../../layout/header/Header'
 import Loading from '../../ui/Loading'
 import Field from '../../ui/field/Field'
+import Success from '../../ui/status/Success'
 import ExercisesList from './ExercisesList'
 import styles from './NewWorkout.module.scss'
 // const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
@@ -19,12 +20,11 @@ const NewWorkout = () => {
 		mode: 'onChange'
 	})
 
-	const { mutate, isLoading } = useMutation(
+	const { mutate, isLoading, isSuccess } = useMutation(
 		['create workout'],
 		body => WorkoutService.create(body),
 		{
 			onSuccess: () => {
-				alert('Workouts created')
 				reset({
 					name: '',
 					exerciseIds: []
@@ -52,6 +52,7 @@ const NewWorkout = () => {
 			>
 				<Header />
 				{isLoading ? <Loading /> : null}
+				{isSuccess && <Success value={'Workout created'} />}
 				<div className={styles.center}>
 					<h1 className={stylesLayout.heading}>Create new workout</h1>
 				</div>

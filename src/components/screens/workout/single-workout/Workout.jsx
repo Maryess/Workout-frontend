@@ -27,6 +27,14 @@ const Workout = () => {
 				}}
 			>
 				<Header backlink={isSuccess && '/workouts'} />
+				<p
+					style={{
+						opacity: 0.3,
+						marginTop: '2.5rem'
+					}}
+				>
+					{data?.data.minutes} minutes
+				</p>
 				<h1 className={stylesLayout.heading}>{data?.data.workout.name}</h1>
 			</div>
 			<div className={styles.main}>

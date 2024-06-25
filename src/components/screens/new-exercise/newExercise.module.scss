@@ -1,6 +1,16 @@
 @import '/src/assets/styles/_mixins.scss';
-
+@import '/src/assets/styles/variables.scss';
 .form {
 	padding: 44px;
 	@include page;
+}
+
+.icon {
+	width: 55%;
+	@include display-center;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+	@media (max-width: $mobile) {
+		width: 70%;
+	}
 }

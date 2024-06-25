@@ -12,7 +12,9 @@ export const useUpdateLogTime = () => {
 		({ timeId, body }) => ExerciseLogService.updateTime(timeId, body),
 		{
 			onSuccess: () => {
-				queryClient.invalidateQueries(['get exercise log', id])
+				// queryClient.invalidateQueries(['get exercise log', id])
+				window.location.reload()
+				// Router.dispatch(location.getCurrentPath(), null)
 			}
 		}
 	)

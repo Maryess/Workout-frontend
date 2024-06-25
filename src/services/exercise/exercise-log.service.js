@@ -10,7 +10,7 @@ class ExerciseLogService {
 	}
 
 	async complete(id, body) {
-		return $axios.patch(`/exercises/log/complete${id}`, body)
+		return $axios.patch(`/exercises/log/complete/${id}`, body)
 	}
 
 	async getAll() {
