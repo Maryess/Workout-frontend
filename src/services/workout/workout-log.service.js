@@ -20,6 +20,10 @@ class WorkoutLogService {
 	async deleteById(id) {
 		return await $axios.delete(`/workouts/log/${id}`)
 	}
+
+	async complete(id) {
+		return await $axios.patch(`/workouts/log/complete/${id}`)
+	}
 }
 
 export default new WorkoutLogService()

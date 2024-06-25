@@ -2,7 +2,6 @@ import cn from 'clsx'
 import stylesLayout from '../../layout/Layout.module.scss'
 import Header from '../../layout/header/Header'
 import Loading from '../../ui/Loading'
-import Button from '../../ui/button/Button'
 import ExerciseTimes from './ExerciseTimes'
 import styles from './Exercises.module.scss'
 import { useExerciseLog } from './exercise-log/hooks/useExerciseLog'
@@ -40,14 +39,11 @@ const Exercise = () => {
 					</div>
 					<div className={styles.line}></div>
 					<div className={styles.form}>
-						{data?.data.times.map((time, index) => (
+						{data?.data.times.map(time => (
 							<>
 								<ExerciseTimes key={time.id} time={time} />
 							</>
 						))}
-					</div>
-					<div style={{ marginTop: '12rem' }}>
-						<Button heading='Finish' />
 					</div>
 				</div>
 			)}

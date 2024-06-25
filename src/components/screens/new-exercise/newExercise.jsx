@@ -90,25 +90,6 @@ const NewExercise = () => {
 					)}
 				/>
 
-				{/* <Controller
-					name='iconPath'
-					control={control}
-					render={({ field: { value, onChange } }) => (
-						<div>
-							{data.map(name => (
-								<img
-									key={name}
-									src={`${import.meta.env.VITE_SERVER_URL}
-						${getIconPath(name)}`}
-									alt={name}
-									onClick={() => onChange(getIconPath(name))}
-									height={45}
-								/>
-							))}
-						</div>
-					)}
-				/> */}
-
 				<Button heading='Create' />
 			</form>
 		</>
