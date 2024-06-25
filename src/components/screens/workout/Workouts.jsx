@@ -6,7 +6,7 @@ const Workouts = ({ workout, mutate, deleteWorkout }) => {
 
 	return (
 		<>
-			<div className={styles.button}>
+			<div className={workout.isCompleted ? styles.completed : styles.button}>
 				<button
 					aria-label='Create new workout'
 					onClick={() => {
