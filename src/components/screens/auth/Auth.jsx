@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import cn from 'clsx'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -15,7 +15,6 @@ import styles from './Auth.module.scss'
 const Auth = () => {
 	const { isAuth, setIsAuth } = useAuth()
 	const navigate = useNavigate()
-	const queryClient = useQueryClient()
 
 	console.log(isAuth)
 	const {
@@ -36,7 +35,7 @@ const Auth = () => {
 			onSuccess: () => {
 				setIsAuth(!isAuth)
 				navigate('/')
-				window.location.reload()
+
 				reset()
 			}
 		}
@@ -87,7 +86,7 @@ const Auth = () => {
 								click={() => {
 									setType('register')
 								}}
-								heading='Sign out'
+								heading='Sign up'
 							/>
 						</div>
 					</form>

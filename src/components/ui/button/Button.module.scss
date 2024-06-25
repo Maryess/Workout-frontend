@@ -6,7 +6,7 @@
 	background-color: var(--bg-color-form);
 	transition: background-color 0.4s ease;
 	border: none;
-	padding: 10px 20px;
+	padding: 15px 30px;
 	outline: none;
 	&:hover {
 		background-color: $bg-color-opacity;
@@ -14,13 +14,14 @@
 	}
 
 	@media (max-width: $mobile) {
-		padding: 9px 16px !important;
+		padding: 15px 20px !important;
 	}
 }
 .heading {
 	font-size: 24px;
 	color: $white;
 }
+
 .wrapper {
 	text-align: center;
 }

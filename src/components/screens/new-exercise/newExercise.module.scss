@@ -10,7 +10,19 @@
 	@include display-center;
 	justify-content: space-between;
 	margin-bottom: 2rem;
+	margin-top: 2rem;
 	@media (max-width: $mobile) {
 		width: 70%;
+	}
+	> img {
+		cursor: pointer;
+
+		&:hover {
+			border-bottom: 4px $pink solid;
+			opacity: 0.8;
+		}
+		> svg {
+			color: var(--color-text);
+		}
 	}
 }

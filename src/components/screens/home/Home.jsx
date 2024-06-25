@@ -17,7 +17,7 @@ const Home = () => {
 				width={146}
 				height={66}
 			/>
-			<h1 className={styles.heading}>Workout app</h1>
+			<h1 className={styles.heading}>EXERCISE FOR THE SHOULDERS</h1>
 
 			<Statistics />
 		</Layout>

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import styles from '../workout/Workout.module.scss'
-const Exercises = ({ exercise }) => {
+const ExerciseItem = ({ exercise }) => {
 	const navigate = useNavigate()
 
 	return (
@@ -21,4 +21,4 @@ const Exercises = ({ exercise }) => {
 	)
 }
 
-export default Exercises
+export default ExerciseItem

@@ -1,5 +1,6 @@
-import styles from './Exercises.module.scss'
+
 import { useExerciseLog } from './exercise-log/hooks/useExerciseLog'
+import styles from './Exercises.module.scss'
 
 const ExerciseTimes = ({ time }) => {
 	const { changeTimesValue, getTimeValue, updateTimeValue } = useExerciseLog()
@@ -12,18 +13,19 @@ const ExerciseTimes = ({ time }) => {
 				>
 					<input
 						style={{ width: 20 }}
-						type='number'
+						type='tel'
 						defaultValue={time.prevWeight}
 						disabled
 					/>
 					<i>/kg{time.isCompleted ? '' : ''}</i>
 					<input
 						style={{ width: 20 }}
-						type='number'
+						type='tel'
 						defaultValue={time.repeat}
 						disabled
 					/>
 				</div>
+				<div className={styles.vertical_line}></div>
 				<div
 					className={time.isCompleted ? styles.completed : ''}
 					style={{ display: 'flex' }}
@@ -48,6 +50,7 @@ const ExerciseTimes = ({ time }) => {
 						disabled={time.isCompleted}
 					/>
 				</div>
+				<div className={styles.vertical_line}></div>
 				<div key={`Completed ${time.id}/${time.isCompleted}`}>
 					<img
 						src={
