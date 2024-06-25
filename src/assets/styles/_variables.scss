@@ -5,11 +5,11 @@ html[data-theme='gray'] {
 	--bg-color-form: #342f2f;
 	--color-text: #f1e8e8;
 }
-html[data-theme='white'] {
+/* html[data-theme='white'] {
 	--bg-color: #ddd6d6;
 	--bg-color-form: rgba(255, 255, 255, 0.5);
 	--color-text: #000;
-}
+} */
 html[data-theme='blue'] {
 	--bg-color: #1c3942;
 	--bg-color-form: rgba(255, 255, 255, 0.5);
@@ -27,7 +27,7 @@ html[data-theme='green'] {
 }
 
 $bg-color-ui: rgba(255, 255, 255, 0.1);
-$bg-color-opacity: rgba(255, 255, 255, 0.2);
+$bg-color-opacity: rgba(255, 255, 255, 0.9);
 $gray: #b53471;
 $dark-gray: #414141;
 $pink: #fad4e4;

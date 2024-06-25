@@ -2,11 +2,11 @@ import cn from 'clsx'
 import stylesLayout from '../../layout/Layout.module.scss'
 import Header from '../../layout/header/Header'
 import Loading from '../../ui/Loading'
+import Button from '../../ui/button/Button'
 import ExerciseTimes from './ExerciseTimes'
 import styles from './Exercises.module.scss'
 import { useExerciseLog } from './exercise-log/hooks/useExerciseLog'
 import { title } from './exercise.title'
-
 const Exercise = () => {
 	const { isLoading, isSuccess, data } = useExerciseLog()
 
@@ -31,19 +31,23 @@ const Exercise = () => {
 				<Loading />
 			) : (
 				<div className={styles.main}>
-					<div className={styles.wrapper}>
-						<div className={styles.title}>
-							{title.map(el => (
-								<div key={el.id}>
-									<span>{el.name}</span>
-								</div>
-							))}
-						</div>
-						<div className={styles.form}>
-							{data?.data.times.map(time => (
+					<div className={styles.title}>
+						{title.map(el => (
+							<div key={el.id}>
+								<span>{el.name}</span>
+							</div>
+						))}
+					</div>
+					<div className={styles.line}></div>
+					<div className={styles.form}>
+						{data?.data.times.map((time, index) => (
+							<>
 								<ExerciseTimes key={time.id} time={time} />
-							))}
-						</div>
+							</>
+						))}
+					</div>
+					<div style={{ marginTop: '12rem' }}>
+						<Button heading='Finish' />
 					</div>
 				</div>
 			)}

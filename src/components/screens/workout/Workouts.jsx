@@ -1,6 +1,9 @@
+import { useQueryClient } from '@tanstack/react-query'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import styles from './Workout.module.scss'
 const Workouts = ({ workout, mutate, deleteWorkout }) => {
+	const queryClient = useQueryClient()
+
 	return (
 		<>
 			<div className={styles.button}>
@@ -15,6 +18,7 @@ const Workouts = ({ workout, mutate, deleteWorkout }) => {
 						fontSize={25}
 						onClick={() => {
 							deleteWorkout(workout.id)
+							queryClient.invalidateQueries('get workouts')
 						}}
 					/>
 				</button>

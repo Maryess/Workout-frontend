@@ -12,13 +12,18 @@ export const useUpdateLogTime = () => {
 		({ timeId, body }) => ExerciseLogService.updateTime(timeId, body),
 		{
 			onSuccess: () => {
-				// queryClient.invalidateQueries(['get exercise log', id])
-				window.location.reload()
-				// Router.dispatch(location.getCurrentPath(), null)
+				queryClient.invalidateQueries('get exercise log', id)
 			}
 		}
 	)
 
+	// .then(() => {
+	// 	const time = times.filter(time => time.isCompleted)
+
+	// 	time.length === times.length - 1
+	// 		? completeLog({ isCompleted: true })
+	// 		: ''
+	// })
 	return {
 		mutate,
 		isSuccess

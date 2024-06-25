@@ -10,7 +10,7 @@ import { useWorkouts } from './hooks/useWorkouts'
 const WorkoutsList = () => {
 	const { data } = useQuery(['get workouts'], () => WorkoutService.getAll())
 
-	const { mutate, isSuccess, isSuccessMutate } = useWorkouts()
+	const { createLog, isSuccess, isSuccessMutate } = useWorkouts()
 	const { deleteWorkout } = useDeleteWorkout()
 
 	return (
@@ -26,7 +26,7 @@ const WorkoutsList = () => {
 								<Workouts
 									key={workout.id}
 									workout={workout}
-									mutate={mutate}
+									mutate={createLog}
 									deleteWorkout={deleteWorkout}
 								/>
 								{index % 2 !== 0 && index !== data.data.length - 1 && (

@@ -1,14 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
 import cn from 'clsx'
 import { Fragment } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import WorkoutLogService from '../../../../services/workout/workout-log.service'
 import stylesLayout from '../../../layout/Layout.module.scss'
 import Header from '../../../layout/header/Header'
-import Exercises from '../../exercise/Exercises'
+import ExerciseItem from '../../exercise/ExerciseItem'
 import styles from '../Workout.module.scss'
 const Workout = () => {
-	const navigate = useNavigate()
 	const { id } = useParams()
 
 	const { data, isSuccess } = useQuery(['get workout', id], () =>
@@ -41,7 +40,7 @@ const Workout = () => {
 				<div className={styles.workouts}>
 					{data?.data.logExercises.map((logExercise, index) => (
 						<Fragment key={logExercise.id}>
-							<Exercises exercise={logExercise} />
+							<ExerciseItem exercise={logExercise} />
 							{index % 2 !== 0 &&
 								index !== data?.data.logExercises.length - 1 && (
 									<div className={styles.line}></div>

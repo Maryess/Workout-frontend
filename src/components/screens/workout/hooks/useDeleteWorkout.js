@@ -9,7 +9,7 @@ export const useDeleteWorkout = () => {
 		id => WorkoutService.deleteById(id),
 		{
 			onSuccess: () => {
-				queryClient.invalidateQueries(['delete workout '])
+				queryClient.invalidateQueries('delete workout ')
 			}
 		}
 	)

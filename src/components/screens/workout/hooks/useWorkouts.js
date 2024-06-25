@@ -22,7 +22,7 @@ export const useWorkouts = () => {
 
 	return {
 		data,
-		mutate,
+		createLog: mutate,
 		isSuccess,
 		isSuccessMutate
 	}
