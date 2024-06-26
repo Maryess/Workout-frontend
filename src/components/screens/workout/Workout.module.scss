@@ -14,11 +14,27 @@
 			align-items: center;
 			border: none;
 			cursor: pointer;
+
 			width: 100%;
 			margin-top: 30px;
 			background-color: transparent;
 			color: var(--color-text);
 			font-size: 20px;
+		}
+		&.completed {
+			> button {
+				text-decoration: line-through;
+				color: lighten(#000, 10%);
+				opacity: 0.5;
+				cursor: default;
+			}
+			> svg {
+				cursor: pointer;
+				&:hover {
+					transform: rotate(360deg);
+					transition: transform 3s ease;
+				}
+			}
 		}
 	}
 }

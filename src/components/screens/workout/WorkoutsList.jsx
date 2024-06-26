@@ -4,7 +4,7 @@ import WorkoutService from '../../../services/workout/workout.service'
 import Layout from '../../layout/Layout'
 import Success from '../../ui/status/Success'
 import styles from './Workout.module.scss'
-import Workouts from './Workouts'
+import WorkoutItem from './WorkoutItem'
 import { useDeleteWorkout } from './hooks/useDeleteWorkout'
 import { useWorkouts } from './hooks/useWorkouts'
 const WorkoutsList = () => {
@@ -23,7 +23,8 @@ const WorkoutsList = () => {
 					<div className={styles.workouts}>
 						{data?.data.map((workout, index) => (
 							<Fragment key={workout.id}>
-								<Workouts
+								{console.log(workout)}
+								<WorkoutItem
 									key={workout.id}
 									workout={workout}
 									mutate={createLog}

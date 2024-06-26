@@ -9,7 +9,7 @@ export const useExerciseLog = () => {
 
 	const { id } = useParams()
 
-	const { mutate } = useUpdateLogTime()
+	const { mutate } = useUpdateLogTime(times)
 
 	const { data, isSuccess, isLoading } = useQuery(
 		['get exercise-log', id],
@@ -55,6 +55,17 @@ export const useExerciseLog = () => {
 		})
 	}
 
+	const getZeroData = (timeId, isCompleted) => {
+		mutate({
+			timeId,
+			body: {
+				isCompleted,
+				repeat: 0,
+				weight: 0
+			}
+		})
+	}
+
 	return {
 		data,
 		times,
@@ -63,6 +74,7 @@ export const useExerciseLog = () => {
 		getTime,
 		getTimeValue,
 		updateTimeValue,
+		getZeroData,
 		isSuccess,
 		isLoading
 	}
