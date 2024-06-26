@@ -1,16 +1,18 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import styles from './Workout.module.scss'
-const Workouts = ({ workout, mutate, deleteWorkout }) => {
+
+const WorkoutItem = ({ workout, mutate, deleteWorkout }) => {
 	const queryClient = useQueryClient()
 
 	return (
 		<>
-			<div className={workout.isCompleted ? styles.completed : styles.button}>
+			<div className={styles.button}>
 				<button
 					aria-label='Create new workout'
 					onClick={() => {
 						mutate(workout.id)
+						console.log(workout.logWorkout.id)
 					}}
 				>
 					<span> {workout.name} </span>
@@ -18,7 +20,7 @@ const Workouts = ({ workout, mutate, deleteWorkout }) => {
 						fontSize={25}
 						onClick={() => {
 							deleteWorkout(workout.id)
-							queryClient.invalidateQueries('get workouts')
+							queryClient.invalidateQueries(['get workouts', '/workouts'])
 						}}
 					/>
 				</button>
@@ -27,4 +29,4 @@ const Workouts = ({ workout, mutate, deleteWorkout }) => {
 	)
 }
 
-export default Workouts
+export default WorkoutItem

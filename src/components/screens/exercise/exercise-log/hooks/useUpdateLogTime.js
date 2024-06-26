@@ -1,31 +1,31 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ExerciseLogService from '../../../../../services/exercise/exercise-log.service'
+import { useCompleteLog } from './useCompleted'
 
-export const useUpdateLogTime = () => {
+export const useUpdateLogTime = times => {
 	const { id } = useParams()
-
+	const { completeLog } = useCompleteLog()
 	const queryClient = useQueryClient()
+	const [isComplete, setIsComplete] = useState(false)
 
 	const { mutate, isSuccess } = useMutation(
 		['update exercise-log time'],
-		({ timeId, body }) => ExerciseLogService.updateTime(timeId, body),
+		({ timeId, body }) =>
+			ExerciseLogService.updateTime(timeId, body).then(() => {
+				const time = times.filter(time => time.isCompleted)
+
+				if (time.length === times.length - 1) {
+					completeLog({ isCompleted: true })
+					setIsComplete(!isComplete)
+				}
+			}),
 		{
 			onSuccess: () => {
 				queryClient.invalidateQueries('get exercise log', id)
 			}
 		}
 	)
-
-	// .then(() => {
-	// 	const time = times.filter(time => time.isCompleted)
-
-	// 	time.length === times.length - 1
-	// 		? completeLog({ isCompleted: true })
-	// 		: ''
-	// })
-	return {
-		mutate,
-		isSuccess
-	}
+	return { mutate, isSuccess, isComplete, setIsComplete }
 }
