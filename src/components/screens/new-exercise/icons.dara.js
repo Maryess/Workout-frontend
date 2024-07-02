@@ -24,4 +24,4 @@ export const icons = [
 		name: 'shoulders',
 		url: '/public/images/icons/shoulders.svg'
 	}
-]
+];

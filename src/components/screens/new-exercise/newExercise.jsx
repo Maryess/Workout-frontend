@@ -1,37 +1,37 @@
-import cn from 'clsx'
-import stylesLayout from '../../layout/Layout.module.scss'
+import cn from 'clsx';
+import stylesLayout from '../../layout/Layout.module.scss';
 
-import Button from '../../ui/button/Button'
+import Button from '../../ui/button/Button';
 
-import { useMutation } from '@tanstack/react-query'
-import { Controller, useForm } from 'react-hook-form'
-import ExerciseService from '../../../services/exercise/exercise.service'
-import Header from '../../layout/header/Header'
-import Loading from '../../ui/Loading'
-import Field from '../../ui/field/Field'
-import Error from '../../ui/status/Error'
-import Success from '../../ui/status/Success'
-import styles from './NewExercise.module.scss'
-import { icons } from './icons.dara'
+import { useMutation } from '@tanstack/react-query';
+import { Controller, useForm } from 'react-hook-form';
+import ExerciseService from '../../../services/exercise/exercise.service';
+import Header from '../../layout/header/Header';
+import Loading from '../../ui/Loading';
+import Field from '../../ui/field/Field';
+import Error from '../../ui/status/Error';
+import Success from '../../ui/status/Success';
+import styles from './NewExercise.module.scss';
+import { icons } from './icons.dara';
 
 const NewExercise = () => {
 	const { register, handleSubmit, reset, control } = useForm({
 		mode: 'onChange'
-	})
+	});
 	const { mutate, isLoading, isSuccess, error } = useMutation(
 		['create exercise'],
 		body => ExerciseService.create(body),
 		{
 			onSuccess: () => {
-				reset()
+				reset();
 			}
 		}
-	)
+	);
 
 	const onSubmit = async data => {
-		mutate(data)
-		console.log(data)
-	}
+		mutate(data);
+		console.log(data);
+	};
 
 	return (
 		<>
@@ -93,7 +93,7 @@ const NewExercise = () => {
 				<Button heading='Create' />
 			</form>
 		</>
-	)
-}
+	);
+};
 
-export default NewExercise
+export default NewExercise;

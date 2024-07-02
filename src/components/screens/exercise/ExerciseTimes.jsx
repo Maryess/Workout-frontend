@@ -1,8 +1,8 @@
-import { useExerciseLog } from './exercise-log/hooks/useExerciseLog'
-import styles from './Exercises.module.scss'
+import { useExerciseLog } from './exercise-log/hooks/useExerciseLog';
+import styles from './Exercises.module.scss';
 
 const ExerciseTimes = ({ time }) => {
-	const { changeTimesValue, getTimeValue, updateTimeValue } = useExerciseLog()
+	const { changeTimesValue, getTimeValue, updateTimeValue } = useExerciseLog();
 
 	return (
 		<div>
@@ -33,7 +33,7 @@ const ExerciseTimes = ({ time }) => {
 					<input
 						value={getTimeValue(time.id, 'weight')}
 						onChange={e => {
-							changeTimesValue(time.id, 'weight', +e.target.value)
+							changeTimesValue(time.id, 'weight', +e.target.value);
 						}}
 						disabled={time.isCompleted}
 						style={{ width: 20 }}
@@ -43,7 +43,7 @@ const ExerciseTimes = ({ time }) => {
 					<input
 						value={getTimeValue(time.id, 'repeat')}
 						onChange={e => {
-							changeTimesValue(time.id, 'repeat', +e.target.value)
+							changeTimesValue(time.id, 'repeat', +e.target.value);
 						}}
 						style={{ width: 20 }}
 						type='tel'
@@ -61,13 +61,13 @@ const ExerciseTimes = ({ time }) => {
 						alt=''
 						style={{ width: 20 }}
 						onClick={() => {
-							updateTimeValue(time.id, !getTimeValue(time.id, 'isCompleted'))
+							updateTimeValue(time.id, !getTimeValue(time.id, 'isCompleted'));
 						}}
 					/>
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default ExerciseTimes
+export default ExerciseTimes;

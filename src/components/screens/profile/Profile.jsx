@@ -1,13 +1,13 @@
-import cn from 'clsx'
-import { FaRegUser } from 'react-icons/fa'
-import { useProfile } from '../../../hooks/useProfile'
-import stylesLayout from '../../layout/Layout.module.scss'
-import Header from '../../layout/header/Header'
-import styles from './Profile.module.scss'
-import { images } from './data.image'
-import Statistics from './statistics/Statistics'
+import cn from 'clsx';
+import { FaRegUser } from 'react-icons/fa';
+import { useProfile } from '../../../hooks/useProfile';
+import stylesLayout from '../../layout/Layout.module.scss';
+import Header from '../../layout/header/Header';
+import styles from './Profile.module.scss';
+import { images } from './data.image';
+import Statistics from './statistics/Statistics';
 const Profile = () => {
-	const { data } = useProfile()
+	const { data } = useProfile();
 
 	return (
 		<>
@@ -44,7 +44,7 @@ const Profile = () => {
 				</div>
 			</div>
 		</>
-	)
-}
+	);
+};
 
-export default Profile
+export default Profile;

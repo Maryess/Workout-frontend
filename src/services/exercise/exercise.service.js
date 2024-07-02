@@ -1,17 +1,17 @@
-import { $axios } from '../../api'
+import { $axios } from '../../api';
 
 class ExerciseService {
 	async create(body) {
-		return await $axios.post(`/exercises`, body)
+		return await $axios.post(`/exercises`, body);
 	}
 
 	async getAll() {
-		return await $axios.get(`/exercises`)
+		return await $axios.get(`/exercises`);
 	}
 
 	async getById(id) {
-		return await $axios.get(`/exercises/${id}`)
+		return await $axios.get(`/exercises/${id}`);
 	}
 }
 
-export default new ExerciseService()
+export default new ExerciseService();

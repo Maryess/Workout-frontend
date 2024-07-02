@@ -1,8 +1,8 @@
-import { Controller } from 'react-hook-form'
-import Select from 'react-select'
-import { useExercise } from '../../../hooks/useExercise'
+import { Controller } from 'react-hook-form';
+import Select from 'react-select';
+import { useExercise } from '../../../hooks/useExercise';
 const ExerciseList = ({ control }) => {
-	const { data } = useExercise()
+	const { data } = useExercise();
 
 	return (
 		<>
@@ -10,7 +10,7 @@ const ExerciseList = ({ control }) => {
 				name='exerciseIds'
 				control={control}
 				render={({ field: { value, onChange } }) => {
-					console.log(value)
+					console.log(value);
 					return (
 						<Select
 							classNamePrefix={'exercises_list'}
@@ -24,11 +24,11 @@ const ExerciseList = ({ control }) => {
 							isMulti
 							isSearchable={false}
 						/>
-					)
+					);
 				}}
 			/>
 		</>
-	)
-}
+	);
+};
 
-export default ExerciseList
+export default ExerciseList;

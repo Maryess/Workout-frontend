@@ -1,7 +1,7 @@
-import axios from 'axios'
-import Cookies from 'js-cookie'
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
-const API_URL = `${import.meta.env.VITE_SERVER_URL}/api`
+const API_URL = `${import.meta.env.VITE_SERVER_URL}/api`;
 
 export const $axios = axios.create({
 	baseURL: API_URL,
@@ -9,4 +9,4 @@ export const $axios = axios.create({
 		'Content-Type': 'application/json',
 		Authorization: Cookies.get('work') ? `Bearer ${Cookies.get('work')}` : ''
 	}
-})
+});

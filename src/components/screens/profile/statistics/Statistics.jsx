@@ -1,7 +1,7 @@
-import { useProfile } from '../../../../hooks/useProfile'
-import styles from './Statistics.module.scss'
+import { useProfile } from '../../../../hooks/useProfile';
+import styles from './Statistics.module.scss';
 const Statistics = () => {
-	const { data } = useProfile()
+	const { data } = useProfile();
 
 	return (
 		<div className={styles.wrapper}>
@@ -12,7 +12,7 @@ const Statistics = () => {
 				</div>
 			))}
 		</div>
-	)
-}
+	);
+};
 
-export default Statistics
+export default Statistics;

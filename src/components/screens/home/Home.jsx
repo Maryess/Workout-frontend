@@ -5,7 +5,7 @@ import Statistics from '../profile/statistics/Statistics'
 import styles from './Home.module.scss'
 
 const Home = () => {
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	return (
 		<Layout bgImage={'/images/home-bg.jpg'}>

@@ -1,22 +1,22 @@
-import { useMutation } from '@tanstack/react-query'
-import cn from 'clsx'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../../hooks/useAuth'
-import AuthService from '../../../services/auth.service'
-import Palette from '../../layout/header/palette/Palette'
-import stylesPalette from '../../layout/header/palette/Palette.module.scss'
-import Loading from '../../ui/Loading'
-import Button from '../../ui/button/Button'
-import Field from '../../ui/field/Field'
-import styles from './Auth.module.scss'
+import { useMutation } from '@tanstack/react-query';
+import cn from 'clsx';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../hooks/useAuth';
+import AuthService from '../../../services/auth.service';
+import Palette from '../../layout/header/palette/Palette';
+import stylesPalette from '../../layout/header/palette/Palette.module.scss';
+import Loading from '../../ui/Loading';
+import Button from '../../ui/button/Button';
+import Field from '../../ui/field/Field';
+import styles from './Auth.module.scss';
 
 const Auth = () => {
-	const { isAuth, setIsAuth } = useAuth()
-	const navigate = useNavigate()
+	const { isAuth, setIsAuth } = useAuth();
+	const navigate = useNavigate();
 
-	console.log(isAuth)
+	console.log(isAuth);
 	const {
 		register,
 		handleSubmit,
@@ -24,26 +24,26 @@ const Auth = () => {
 		reset
 	} = useForm({
 		mode: 'onChange'
-	})
+	});
 
-	const [type, setType] = useState('register')
+	const [type, setType] = useState('register');
 	const { mutate, isLoading } = useMutation(
 		['auth'],
 		({ email, password }) => AuthService.main(email, password, type),
 
 		{
 			onSuccess: () => {
-				setIsAuth(!isAuth)
-				navigate('/')
+				setIsAuth(!isAuth);
+				navigate('/');
 
-				reset()
+				reset();
 			}
 		}
-	)
+	);
 
 	const onSubmit = async data => {
-		mutate(data)
-	}
+		mutate(data);
+	};
 
 	return (
 		<>
@@ -78,13 +78,13 @@ const Auth = () => {
 						<div className={styles.wrapperButtons}>
 							<Button
 								click={() => {
-									setType('login')
+									setType('login');
 								}}
 								heading='Sign in'
 							/>
 							<Button
 								click={() => {
-									setType('register')
+									setType('register');
 								}}
 								heading='Sign up'
 							/>
@@ -93,7 +93,7 @@ const Auth = () => {
 				</div>
 			</div>
 		</>
-	)
-}
+	);
+};
 
-export default Auth
+export default Auth;

@@ -1,13 +1,13 @@
-import cn from 'clsx'
-import stylesLayout from '../../layout/Layout.module.scss'
-import Header from '../../layout/header/Header'
-import Loading from '../../ui/Loading'
-import ExerciseTimes from './ExerciseTimes'
-import styles from './Exercises.module.scss'
-import { useExerciseLog } from './exercise-log/hooks/useExerciseLog'
-import { title } from './exercise.title'
+import cn from 'clsx';
+import stylesLayout from '../../layout/Layout.module.scss';
+import Header from '../../layout/header/Header';
+import Loading from '../../ui/Loading';
+import ExerciseTimes from './ExerciseTimes';
+import styles from './Exercises.module.scss';
+import { useExerciseLog } from './exercise-log/hooks/useExerciseLog';
+import { title } from './exercise.title';
 const Exercise = () => {
-	const { isLoading, isSuccess, data } = useExerciseLog()
+	const { isLoading, isSuccess, data } = useExerciseLog();
 
 	return (
 		<>
@@ -48,7 +48,7 @@ const Exercise = () => {
 				</div>
 			)}
 		</>
-	)
-}
+	);
+};
 
-export default Exercise
+export default Exercise;

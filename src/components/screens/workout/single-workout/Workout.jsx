@@ -1,31 +1,31 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
-import cn from 'clsx'
-import { Fragment } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import WorkoutLogService from '../../../../services/workout/workout-log.service'
-import stylesLayout from '../../../layout/Layout.module.scss'
-import Header from '../../../layout/header/Header'
-import Button from '../../../ui/button/Button'
-import ExerciseItem from '../../exercise/ExerciseItem'
-import styles from '../Workout.module.scss'
+import { useMutation, useQuery } from '@tanstack/react-query';
+import cn from 'clsx';
+import { Fragment } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import WorkoutLogService from '../../../../services/workout/workout-log.service';
+import stylesLayout from '../../../layout/Layout.module.scss';
+import Header from '../../../layout/header/Header';
+import Button from '../../../ui/button/Button';
+import ExerciseItem from '../../exercise/ExerciseItem';
+import styles from '../Workout.module.scss';
 const Workout = () => {
-	const { id } = useParams()
-	const navigate = useNavigate()
+	const { id } = useParams();
+	const navigate = useNavigate();
 	const { data, isSuccess } = useQuery(['get workout', id], () =>
 		WorkoutLogService.getById(id)
-	)
+	);
 
 	const { mutate } = useMutation(
 		['complete workout'],
 		() => WorkoutLogService.complete(id),
 		{
 			onSuccess: () => {
-				navigate('/workouts')
+				navigate('/workouts');
 			}
 		}
-	)
+	);
 
-	console.log(data?.data)
+	console.log(data?.data);
 	return (
 		<>
 			<div
@@ -64,7 +64,7 @@ const Workout = () => {
 				</div>
 			</div>
 		</>
-	)
-}
+	);
+};
 
-export default Workout
+export default Workout;

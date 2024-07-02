@@ -1,9 +1,9 @@
-import cn from 'clsx'
-import { useNavigate } from 'react-router-dom'
-import styles from '../workout/Workout.module.scss'
+import cn from 'clsx';
+import { useNavigate } from 'react-router-dom';
+import styles from '../workout/Workout.module.scss';
 
 const ExerciseItem = ({ exercise }) => {
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	return (
 		<>
@@ -18,7 +18,7 @@ const ExerciseItem = ({ exercise }) => {
 					<button
 						aria-label='Move to exercise'
 						onClick={() => {
-							navigate(`/exercises/${exercise.id}`)
+							navigate(`/exercises/${exercise.id}`);
 						}}
 					>
 						<span>{exercise.exercise.name}</span>
@@ -34,7 +34,7 @@ const ExerciseItem = ({ exercise }) => {
 				)}
 			</div>
 		</>
-	)
-}
+	);
+};
 
-export default ExerciseItem
+export default ExerciseItem;

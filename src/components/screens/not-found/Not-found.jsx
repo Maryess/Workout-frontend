@@ -1,8 +1,8 @@
-import { useRouteError } from 'react-router-dom'
+import { useRouteError } from 'react-router-dom';
 
 const NotFound = () => {
-	const error = useRouteError()
-	console.error()
+	const error = useRouteError();
+	console.error();
 	return (
 		<div
 			style={{
@@ -17,7 +17,7 @@ const NotFound = () => {
 			<img src='/src/assets/icons/error-inspect-ios11-svgrepo-com.svg' alt='' />
 			<p> Not found</p>
 		</div>
-	)
-}
+	);
+};
 
-export default NotFound
+export default NotFound;

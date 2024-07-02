@@ -1,5 +1,5 @@
-import cn from 'clsx'
-import styles from './Button.module.scss'
+import cn from 'clsx';
+import styles from './Button.module.scss';
 
 const Button = ({ children, click, heading = '' }) => {
 	return (
@@ -9,7 +9,7 @@ const Button = ({ children, click, heading = '' }) => {
 				{children}
 			</button>
 		</div>
-	)
-}
+	);
+};
 
-export default Button
+export default Button;

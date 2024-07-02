@@ -1,24 +1,24 @@
-import cn from 'clsx'
-import stylesLayout from '../../layout/Layout.module.scss'
-import Button from '../../ui/button/Button'
-import '/src/assets/styles/index.scss'
+import cn from 'clsx';
+import stylesLayout from '../../layout/Layout.module.scss';
+import Button from '../../ui/button/Button';
+import '/src/assets/styles/index.scss';
 
-import { useMutation } from '@tanstack/react-query'
-import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
-import WorkoutService from '../../../services/workout/workout.service'
-import Header from '../../layout/header/Header'
-import Loading from '../../ui/Loading'
-import Field from '../../ui/field/Field'
-import Success from '../../ui/status/Success'
-import ExercisesList from './ExercisesList'
-import styles from './NewWorkout.module.scss'
+import { useMutation } from '@tanstack/react-query';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import WorkoutService from '../../../services/workout/workout.service';
+import Header from '../../layout/header/Header';
+import Loading from '../../ui/Loading';
+import Field from '../../ui/field/Field';
+import Success from '../../ui/status/Success';
+import ExercisesList from './ExercisesList';
+import styles from './NewWorkout.module.scss';
 // const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
 
 const NewWorkout = () => {
 	const { control, register, handleSubmit, reset } = useForm({
 		mode: 'onChange'
-	})
+	});
 
 	const { mutate, isLoading, isSuccess } = useMutation(
 		['create workout'],
@@ -28,17 +28,17 @@ const NewWorkout = () => {
 				reset({
 					name: '',
 					exerciseIds: []
-				})
+				});
 			}
 		}
-	)
+	);
 
 	const onSubmit = data => {
 		mutate({
 			name: data.name,
 			exerciseIds: data.exerciseIds.map(ex => ex.value)
-		})
-	}
+		});
+	};
 
 	return (
 		<>
@@ -77,7 +77,7 @@ const NewWorkout = () => {
 				</div>
 			</form>
 		</>
-	)
-}
+	);
+};
 
-export default NewWorkout
+export default NewWorkout;

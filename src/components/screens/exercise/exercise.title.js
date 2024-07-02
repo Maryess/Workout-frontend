@@ -11,4 +11,4 @@ export const title = [
 		id: 3,
 		name: 'Completed'
 	}
-]
+];

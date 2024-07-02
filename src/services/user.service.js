@@ -1,9 +1,9 @@
-import { $axios } from '../api'
+import { $axios } from '../api';
 
 class UserService {
 	async getName() {
-		return $axios.get('/users/profile')
+		return $axios.get('/users/profile');
 	}
 }
 
-export default new UserService()
+export default new UserService();

@@ -5,4 +5,4 @@ export const images = [
 	{
 		img: '/public/images/after.jpg'
 	}
-]
+];

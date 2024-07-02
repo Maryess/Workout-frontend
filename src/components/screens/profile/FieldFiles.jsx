@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { IoCloseCircle } from 'react-icons/io5'
-import stylesProfile from './Profile.module.scss'
+import { useState } from 'react';
+import { IoCloseCircle } from 'react-icons/io5';
+import stylesProfile from './Profile.module.scss';
 
 const FieldFiles = () => {
-	const [image, setImage] = useState(null)
-	const [fileName, setFileName] = useState('No selected file')
+	const [image, setImage] = useState(null);
+	const [fileName, setFileName] = useState('No selected file');
 
 	return (
 		<div>
@@ -17,22 +17,22 @@ const FieldFiles = () => {
 			)}
 			<IoCloseCircle
 				onClick={() => {
-					setImage(null)
+					setImage(null);
 				}}
 			/>
 
 			<input
 				onChange={({ target: { files } }) => {
-					files[0] && setFileName(files[0].name)
+					files[0] && setFileName(files[0].name);
 					if (files) {
-						setImage(URL.createObjectURL(files[0]))
+						setImage(URL.createObjectURL(files[0]));
 					}
 				}}
 				type='file'
 				multiple={true}
 			/>
 		</div>
-	)
-}
+	);
+};
 
-export default FieldFiles
+export default FieldFiles;
