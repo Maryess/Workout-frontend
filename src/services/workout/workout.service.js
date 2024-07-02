@@ -1,21 +1,26 @@
 import { $axios } from '../../api';
 
-class WorkoutService {
-	async create(body) {
+export const workoutService = () => {
+	const create = async body => {
 		return await $axios.post(`/workouts`, body);
-	}
+	};
 
-	async getAll() {
+	const getAll = async () => {
 		return await $axios.get(`/workouts`);
-	}
+	};
 
-	async getById(id) {
+	const getById = async id => {
 		return await $axios.get(`/workouts/${id}`);
-	}
+	};
 
-	async deleteById(id) {
+	const deleteById = async id => {
 		return await $axios.delete(`/workouts/${id}`);
-	}
-}
+	};
 
-export default new WorkoutService();
+	return {
+		create,
+		getAll,
+		getById,
+		deleteById
+	};
+};

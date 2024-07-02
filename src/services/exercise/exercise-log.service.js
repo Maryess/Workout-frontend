@@ -1,25 +1,31 @@
 import { $axios } from '../../api';
 
-class ExerciseLogService {
-	async create(exerciseId) {
+export const exerciseLogService = () => {
+	const create = async exerciseId => {
 		return await $axios.post(`/exercises/log/${exerciseId}`);
-	}
+	};
 
-	async updateTime(timeId, body) {
+	const updateTime = async (timeId, body) => {
 		return await $axios.put(`/exercises/log/time/${timeId}`, body);
-	}
+	};
 
-	async complete(id, body) {
+	const complete = async (id, body) => {
 		return $axios.patch(`/exercises/log/complete/${id}`, body);
-	}
+	};
 
-	async getAll() {
+	const getAll = async () => {
 		return await $axios.get(`/exercises/log`);
-	}
+	};
 
-	async getById(id) {
+	const getById = async id => {
 		return await $axios.get(`/exercises/log/${id}`);
-	}
-}
+	};
 
-export default new ExerciseLogService();
+	return {
+		create,
+		updateTime,
+		complete,
+		getAll,
+		getById
+	};
+};

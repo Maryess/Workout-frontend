@@ -1,9 +1,9 @@
 import { $axios } from '../api';
 
-class UserService {
-	async getName() {
+export const userService = () => {
+	const getName = async () => {
 		return $axios.get('/users/profile');
-	}
-}
+	};
 
-export default new UserService();
+	return { getName };
+};

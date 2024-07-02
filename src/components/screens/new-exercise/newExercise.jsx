@@ -5,7 +5,8 @@ import Button from '../../ui/button/Button';
 
 import { useMutation } from '@tanstack/react-query';
 import { Controller, useForm } from 'react-hook-form';
-import ExerciseService from '../../../services/exercise/exercise.service';
+
+import { exerciseService } from '../../../services/exercise/exercise.service';
 import Header from '../../layout/header/Header';
 import Loading from '../../ui/Loading';
 import Field from '../../ui/field/Field';
@@ -18,9 +19,10 @@ const NewExercise = () => {
 	const { register, handleSubmit, reset, control } = useForm({
 		mode: 'onChange'
 	});
+	const { create } = exerciseService();
 	const { mutate, isLoading, isSuccess, error } = useMutation(
 		['create exercise'],
-		body => ExerciseService.create(body),
+		body => create(body),
 		{
 			onSuccess: () => {
 				reset();

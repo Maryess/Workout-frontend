@@ -1,17 +1,21 @@
 import { $axios } from '../../api';
 
-class ExerciseService {
-	async create(body) {
+export const exerciseService = () => {
+	const create = async body => {
 		return await $axios.post(`/exercises`, body);
-	}
+	};
 
-	async getAll() {
+	const getAll = async () => {
 		return await $axios.get(`/exercises`);
-	}
+	};
 
-	async getById(id) {
+	const getById = async id => {
 		return await $axios.get(`/exercises/${id}`);
-	}
-}
+	};
 
-export default new ExerciseService();
+	return {
+		create,
+		getAll,
+		getById
+	};
+};
