@@ -1,4 +1,4 @@
-import cn from 'clsx';
+import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import styles from '../workout/Workout.module.scss';
 
@@ -10,7 +10,7 @@ const ExerciseItem = ({ exercise }) => {
 			<div
 				className={
 					exercise.isCompleted
-						? cn(styles.completed, styles.button)
+						? clsx(styles.completed, styles.button)
 						: styles.button
 				}
 			>

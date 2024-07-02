@@ -1,4 +1,4 @@
-import cn from 'clsx';
+import clsx from 'clsx';
 import stylesLayout from '../../layout/Layout.module.scss';
 import Header from '../../layout/header/Header';
 import Loading from '../../ui/Loading';
@@ -12,7 +12,7 @@ const Exercise = () => {
 	return (
 		<>
 			<div
-				className={cn(stylesLayout.wrapper, stylesLayout.otherPage)}
+				className={clsx(stylesLayout.wrapper, stylesLayout.otherPage)}
 				style={{
 					backgroundImage: `url('/images/exercise.jpg')`,
 					height: 280,

@@ -8,8 +8,7 @@
 	padding: 8px;
 	border-radius: 8px;
 	animation: appearance 7s ease forwards;
-
-	&.error {
-		background-color: #ff6347 !important;
-	}
+}
+.error {
+	background-color: #ff6347 !important;
 }

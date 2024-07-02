@@ -1,4 +1,4 @@
-import styles from './Success.module.scss';
+import styles from './Status.module.scss';
 
 const Success = ({ value }) => {
 	return (
