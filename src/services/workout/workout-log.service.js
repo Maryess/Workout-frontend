@@ -1,6 +1,6 @@
 import { $axios } from '../../api';
 
-export const workoutService = () => {
+export const workoutLogService = () => {
 	const create = async workoutId => {
 		return await $axios.post(`/workouts/log/${workoutId}`);
 	};

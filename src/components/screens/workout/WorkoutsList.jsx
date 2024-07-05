@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { Fragment } from 'react';
-import WorkoutService from '../../../services/workout/workout.service';
+import { workoutService } from '../../../services/workout/workout.service';
 import Layout from '../../layout/Layout';
 import Success from '../../ui/status/Success';
 import styles from './Workout.module.scss';
@@ -8,7 +8,8 @@ import WorkoutItem from './WorkoutItem';
 import { useDeleteWorkout } from './hooks/useDeleteWorkout';
 import { useWorkouts } from './hooks/useWorkouts';
 const WorkoutsList = () => {
-	const { data } = useQuery(['get workouts'], () => WorkoutService.getAll());
+	const { getAll } = workoutService();
+	const { data } = useQuery(['get workouts'], () => getAll());
 
 	const { createLog, isSuccess, isSuccessMutate } = useWorkouts();
 	const { deleteWorkout } = useDeleteWorkout();

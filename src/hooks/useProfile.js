@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import userService from '../services/user.service';
+import { userService } from '../services/user.service';
 
 export const useProfile = () => {
-	return useQuery(['get profile'], () => userService.getName());
+	const { getName } = userService();
+	return useQuery(['get profile'], () => getName());
 };

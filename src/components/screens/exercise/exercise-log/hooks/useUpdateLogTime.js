@@ -2,14 +2,14 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { ExerciseLogService } from '../../../../../services/exercise/exercise-log.service';
+import { exerciseLogService } from '../../../../../services/exercise/exercise-log.service';
 import { useCompleteLog } from './useCompleted';
 
 export const useUpdateLogTime = times => {
 	const { id } = useParams();
 	const { completeLog } = useCompleteLog();
 	const queryClient = useQueryClient();
-	const { updateTime } = ExerciseLogService();
+	const { updateTime } = exerciseLogService();
 	const [isComplete, setIsComplete] = useState(false);
 
 	const { mutate, isSuccess } = useMutation(

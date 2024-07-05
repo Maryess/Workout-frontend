@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import ExerciseService from '../services/exercise/exercise.service';
+import { exerciseService } from '../services/exercise/exercise.service';
 
 export const useExercise = () => {
-	return useQuery(['get exercise'], () => ExerciseService.getAll());
+	const { getAll } = exerciseService();
+	return useQuery(['get exercise'], () => getAll());
 };

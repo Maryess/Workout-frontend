@@ -2,14 +2,14 @@ import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { ExerciseLogService } from '../../../../../services/exercise/exercise-log.service';
+import { exerciseLogService } from '../../../../../services/exercise/exercise-log.service';
 import { useUpdateLogTime } from './useUpdateLogTime';
 
 export const useExerciseLog = () => {
 	const [times, setTimes] = useState([]);
 
 	const { id } = useParams();
-	const { getById } = ExerciseLogService();
+	const { getById } = exerciseLogService();
 	const { mutate } = useUpdateLogTime(times);
 
 	const { data, isSuccess, isLoading } = useQuery(

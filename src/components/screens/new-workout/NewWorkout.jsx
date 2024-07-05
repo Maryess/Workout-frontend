@@ -6,7 +6,7 @@ import '/src/assets/styles/index.scss';
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import WorkoutService from '../../../services/workout/workout.service';
+import { workoutService } from '../../../services/workout/workout.service';
 import Header from '../../layout/header/Header';
 import Loading from '../../ui/Loading';
 import Field from '../../ui/field/Field';
@@ -16,13 +16,14 @@ import styles from './NewWorkout.module.scss';
 // const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
 
 const NewWorkout = () => {
+	const { create } = workoutService();
 	const { control, register, handleSubmit, reset } = useForm({
 		mode: 'onChange'
 	});
 
 	const { mutate, isLoading, isSuccess } = useMutation(
 		['create workout'],
-		body => WorkoutService.create(body),
+		body => create(body),
 		{
 			onSuccess: () => {
 				reset({

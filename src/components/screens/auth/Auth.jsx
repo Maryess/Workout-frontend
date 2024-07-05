@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
-import AuthService from '../../../services/auth.service';
+import { authService } from '../../../services/auth.service';
 import Palette from '../../layout/header/palette/Palette';
 import stylesPalette from '../../layout/header/palette/Palette.module.scss';
 import Loading from '../../ui/Loading';
@@ -15,7 +15,7 @@ import styles from './Auth.module.scss';
 const Auth = () => {
 	const { isAuth, setIsAuth } = useAuth();
 	const navigate = useNavigate();
-
+	const { main } = authService();
 	console.log(isAuth);
 	const {
 		register,
@@ -29,7 +29,7 @@ const Auth = () => {
 	const [type, setType] = useState('register');
 	const { mutate, isLoading } = useMutation(
 		['auth'],
-		({ email, password }) => AuthService.main(email, password, type),
+		({ email, password }) => main(email, password, type),
 
 		{
 			onSuccess: () => {
