@@ -1,17 +1,16 @@
-import Cookies from 'js-cookie'
-import { Fragment, useState } from 'react'
-import { FaCircle } from 'react-icons/fa'
-import { RiColorFilterLine } from 'react-icons/ri'
-import styles from './Palette.module.scss'
-import { useTheme } from './hooks/useTheme'
-import { palettes } from './palettes.data'
+import { Fragment, useState } from 'react';
+import { FaCircle } from 'react-icons/fa';
+import { RiColorFilterLine } from 'react-icons/ri';
+import styles from './Palette.module.scss';
+import { useTheme } from './hooks/useTheme';
+import { palettes } from './palettes.data';
 const Palette = ({ auth }) => {
-	const { theme, setTheme } = useTheme()
-	const [isShowPalette, setIsShowPalette] = useState(false)
+	const { theme, setTheme } = useTheme();
+	const [isShowPalette, setIsShowPalette] = useState(false);
 	const changeColor = color => {
-		Cookies.set('theme', theme)
-		setTheme(color)
-	}
+		localStorage.setItem('theme', theme);
+		setTheme(color);
+	};
 
 	return !auth ? (
 		<Fragment>
@@ -34,7 +33,7 @@ const Palette = ({ auth }) => {
 								fontSize={25}
 								color={palette.color}
 								onClick={() => {
-									changeColor(palette.name)
+									changeColor(palette.name);
 								}}
 							/>
 						</div>
@@ -46,7 +45,7 @@ const Palette = ({ auth }) => {
 		</Fragment>
 	) : (
 		<RiColorFilterLine fontSize={30} className={styles.auth_page} />
-	)
-}
+	);
+};
 
-export default Palette
+export default Palette;
