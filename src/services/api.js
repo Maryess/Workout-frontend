@@ -7,6 +7,8 @@ export const $axios = axios.create({
 	baseURL: API_URL,
 	headers: {
 		'Content-Type': 'application/json',
-		Authorization: Cookies.get('work') ? `Bearer ${Cookies.get('work')}` : ''
+		Authorization: Cookies.get('get token')
+			? `Bearer ${Cookies.get('get token')}`
+			: null
 	}
 });

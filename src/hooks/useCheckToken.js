@@ -8,7 +8,7 @@ export const useCheckToken = () => {
 	const { pathname } = useLocation();
 
 	useEffect(() => {
-		const token = Cookies.get('work');
+		const token = Cookies.get('get token');
 		if (!token) setIsAuth(false);
 	}, [pathname, isAuth]);
 };

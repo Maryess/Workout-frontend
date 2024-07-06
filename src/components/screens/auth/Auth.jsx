@@ -25,15 +25,15 @@ const Auth = () => {
 	} = useForm({
 		mode: 'onChange'
 	});
-
 	const [type, setType] = useState('register');
+
 	const { mutate, isLoading } = useMutation(
 		['auth'],
 		({ email, password }) => main(email, password, type),
 
 		{
 			onSuccess: () => {
-				setIsAuth(!isAuth);
+				setIsAuth(prev => !prev);
 				navigate('/');
 
 				reset();

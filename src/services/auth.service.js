@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { $axios } from '../api';
+import { $axios } from './api';
 
 export const authService = () => {
 	const main = async (email, password, type) => {
@@ -9,7 +9,7 @@ export const authService = () => {
 				password
 			});
 
-			if (data.token) Cookies.set('work', data.token);
+			if (data.token) Cookies.set('get token', data.token);
 			return data;
 		} catch (error) {
 			throw new Error(error);

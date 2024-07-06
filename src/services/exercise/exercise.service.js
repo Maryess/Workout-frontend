@@ -1,4 +1,4 @@
-import { $axios } from '../../api';
+import { $axios } from '../api';
 
 export const exerciseService = () => {
 	const create = async body => {
